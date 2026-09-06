@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>AI Briefing — Ignacio · ~100 bookmarks</title>
+<meta name="description" content="Briefing de insights desde bookmarks de AI (24 jun–5 sep 2026 AR). No es un feed de tweets."/>
+<style>
+:root {
+  --bg: #0b0d12;
+  --bg2: #12151d;
+  --panel: #161a24;
+  --border: #2a3142;
+  --text: #e8ecf4;
+  --muted: #9aa3b5;
+  --accent: #7c5cff;
+  --accent2: #22d3ee;
+  --radius: 16px;
+  --shadow: 0 12px 40px rgba(0,0,0,.35);
+  --nav-h: 64px;
+  --font: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+[data-theme-mode="light"] {
+  --bg: #f4f6fb;
+  --bg2: #ffffff;
+  --panel: #ffffff;
+  --border: #d8dee9;
+  --text: #12151d;
+  --muted: #5b6475;
+  --shadow: 0 10px 30px rgba(18,21,29,.08);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; font-family: var(--font); background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(124,92,255,.18), transparent 60%),
+    radial-gradient(900px 500px at 90% 0%, rgba(34,211,238,.12), transparent 55%),
+    var(--bg);
+  color: var(--text); line-height: 1.5; min-height: 100vh;
+}
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.nav {
+  position: sticky; top: 0; z-index: 50; height: var(--nav-h);
+  display: flex; align-items: center; gap: 1rem; padding: 0 1.25rem;
+  background: color-mix(in srgb, var(--bg2) 85%, transparent);
+  backdrop-filter: blur(14px); border-bottom: 1px solid var(--border);
+}
+.brand { font-weight: 700; letter-spacing: -.02em; white-space: nowrap; }
+.brand span { color: var(--accent); }
+.nav-search {
+  flex: 1; max-width: 420px; position: relative;
+}
+.nav-search input {
+  width: 100%; padding: .65rem .9rem .65rem 2.2rem; border-radius: 999px;
+  border: 1px solid var(--border); background: var(--panel); color: var(--text);
+  outline: none;
+}
+.nav-search input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(124,92,255,.25); }
+.nav-search .ico { position: absolute; left: .75rem; top: 50%; transform: translateY(-50%); opacity: .55; }
+.nav-actions { display: flex; gap: .5rem; margin-left: auto; }
+.btn {
+  border: 1px solid var(--border); background: var(--panel); color: var(--text);
+  border-radius: 999px; padding: .45rem .85rem; cursor: pointer; font: inherit; font-size: .85rem;
+}
+.btn:hover { border-color: var(--accent); }
+.btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+.hero {
+  max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.25rem 1rem;
+}
+.hero h1 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.15; margin: 0 0 .75rem;
+  letter-spacing: -.03em;
+}
+.hero p { color: var(--muted); max-width: 62ch; margin: 0 0 1.25rem; }
+.meta {
+  display: flex; flex-wrap: wrap; gap: .6rem;
+}
+.pill {
+  display: inline-flex; align-items: center; gap: .4rem;
+  padding: .35rem .7rem; border-radius: 999px; border: 1px solid var(--border);
+  background: var(--panel); font-size: .82rem; color: var(--muted);
+}
+.pill strong { color: var(--text); font-weight: 600; }
+
+.filters {
+  max-width: 1100px; margin: 0 auto; padding: .5rem 1.25rem 1.25rem;
+  display: flex; flex-wrap: wrap; gap: .5rem; position: sticky; top: var(--nav-h); z-index: 40;
+  background: linear-gradient(var(--bg), color-mix(in srgb, var(--bg) 92%, transparent));
+  padding-top: .75rem; padding-bottom: .75rem;
+}
+.filter {
+  border: 1px solid var(--border); background: var(--panel); color: var(--text);
+  border-radius: 999px; padding: .4rem .85rem; cursor: pointer; font: inherit; font-size: .82rem;
+}
+.filter:hover, .filter.on {
+  border-color: var(--chip, var(--accent));
+  box-shadow: inset 0 0 0 1px var(--chip, var(--accent));
+}
+.filter.on {
+  background: color-mix(in srgb, var(--chip, var(--accent)) 22%, var(--panel));
+}
+.filter[data-theme="all"] { --chip: var(--accent); }
+
+.grid {
+  max-width: 1100px; margin: 0 auto; padding: 0 1.25rem 4rem;
+  display: grid; gap: 1rem;
+}
+.card {
+  background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius);
+  box-shadow: var(--shadow); overflow: hidden; transition: border-color .2s, transform .2s;
+}
+.card:hover { border-color: color-mix(in srgb, var(--accent) 50%, var(--border)); }
+.card.hidden { display: none; }
+.card-head {
+  width: 100%; text-align: left; background: transparent; border: 0; color: inherit;
+  padding: 1.15rem 1.25rem 1.05rem; cursor: pointer; position: relative; font: inherit;
+}
+.chip {
+  display: inline-block; font-size: .72rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: .04em; padding: .2rem .55rem; border-radius: 999px; margin-bottom: .55rem;
+  color: var(--chip); background: color-mix(in srgb, var(--chip) 16%, transparent);
+  border: 1px solid color-mix(in srgb, var(--chip) 35%, transparent);
+}
+.card-head h2 {
+  margin: 0 0 .45rem; font-size: 1.15rem; letter-spacing: -.02em; padding-right: 1.5rem;
+}
+.lede { margin: 0; color: var(--muted); font-size: .95rem; }
+.chev {
+  position: absolute; right: 1.1rem; top: 1.2rem; transition: transform .2s; opacity: .6;
+}
+.card.open .chev { transform: rotate(180deg); }
+.card-body {
+  padding: 0 1.25rem 1.25rem; border-top: 1px solid var(--border);
+  animation: fade .25s ease;
+}
+@keyframes fade { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+.nums {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: .75rem; margin: 1rem 0;
+}
+.num {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: .75rem;
+}
+.nv { display: block; font-weight: 700; font-size: 1.05rem; color: var(--accent2); }
+.nl { display: block; font-size: .75rem; color: var(--muted); margin-top: .15rem; }
+.section h3 { margin: 1rem 0 .4rem; font-size: .85rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+.section ul { margin: 0; padding-left: 1.15rem; }
+.section li { margin: .35rem 0; }
+.why p { margin: 0; }
+.outlinks { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+.olink {
+  display: inline-flex; align-items: center; padding: .4rem .7rem; border-radius: 10px;
+  border: 1px solid var(--border); background: var(--bg2); color: var(--text); font-size: .85rem;
+}
+.olink:hover { border-color: var(--accent2); text-decoration: none; }
+.cites {
+  margin-top: 1rem; font-size: .78rem; color: var(--muted); border-top: 1px dashed var(--border);
+  padding-top: .75rem;
+}
+.cites a { color: var(--muted); }
+.cites a:hover { color: var(--accent2); }
+
+.empty {
+  display: none; text-align: center; padding: 3rem 1rem; color: var(--muted);
+  border: 1px dashed var(--border); border-radius: var(--radius);
+}
+.empty.show { display: block; }
+
+.footer {
+  max-width: 1100px; margin: 0 auto; padding: 0 1.25rem 3rem;
+  color: var(--muted); font-size: .8rem;
+}
+
+@media (max-width: 640px) {
+  .nav { gap: .5rem; }
+  .brand { font-size: .9rem; }
+  .nav-actions .label { display: none; }
+}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="brand">AI <span>Briefing</span></div>
+  <div class="nav-search">
+    <span class="ico">⌕</span>
+    <input id="q" type="search" placeholder="Buscar insights, tips, números…" autocomplete="off"/>
+  </div>
+  <div class="nav-actions">
+    <button class="btn" id="expandAll" type="button"><span class="label">Expandir</span> ↕</button>
+    <button class="btn" id="themeBtn" type="button" title="Cambiar tema">◐</button>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Insights de AI, no un feed de tweets</h1>
+  <p>Síntesis editorial a partir de ~100 bookmarks de la carpeta AI.
+  Takeaways, tips, números y por qué importa — agrupados por tema.
+  Las citas a X van solo como notas al pie.</p>
+  <div class="meta">
+    <div class="pill"><strong>~100</strong> bookmarks</div>
+    <div class="pill"><strong>24 jun – 5 sep 2026</strong> (AR)</div>
+    <div class="pill"><strong>15</strong> insight cards</div>
+    <div class="pill">Generado <strong>5 sep 2026</strong></div>
+  </div>
+</section>
+
+<nav class="filters" aria-label="Filtros por tema">
+  <button type="button" class="filter on" data-theme="all">Todos</button>
+  <button type="button" class="filter" data-theme="astra" style="--chip:#7c5cff">Astra / GPT-6</button><button type="button" class="filter" data-theme="coding" style="--chip:#3b82f6">Coding / prompts / agentes</button><button type="button" class="filter" data-theme="costos" style="--chip:#10b981">Costos</button><button type="button" class="filter" data-theme="creatividad" style="--chip:#f59e0b">Creatividad / demos</button><button type="button" class="filter" data-theme="research" style="--chip:#ec4899">Research</button><button type="button" class="filter" data-theme="tips" style="--chip:#06b6d4">Tips prácticos</button>
+</nav>
+
+<main class="grid" id="grid">
+
+<article class="card" data-theme="astra" data-search="gpt-6 astra: el flagship de openai (sep 2026) astra (`gpt-6-astra`) es el modelo de punta de openai para trabajo extremo a extremo: coding agentic, computer use, science y professional work. ventana 1.05m tokens; effort low→max (sin `none`). cambia el techo de lo que podés automatizar en un solo hilo: demos de devday se adelantaron meses en equipos internos. api: responses para tool calling; chat completions sin tools. precio base $10/$50 por m tokens; cache reads $1/m. cuidado con el cliff &gt;272k input (2× input / 1.5× output). astra / gpt-6" id="card-astra-lanzamiento">
+  <button class="card-head" aria-expanded="false" type="button">
+    <span class="chip" style="--chip:#7c5cff">Astra / GPT-6</span>
+    <h2>GPT-6 Astra: el flagship de OpenAI (sep 2026)</h2>
+    <p class="lede">Astra (`gpt-6-astra`) es el modelo de punta de OpenAI para trabajo extremo a extremo: coding agentic, computer use, science y professional work. Ventana 1.05M tokens; effort low→max (sin `none`).</p>
+    <span class="chev" aria-hidden="true">▾</span>
+  </button>
+  <div class="card-body" hidden>
+    <div class="nums"><div class="num"><span class="nv">1.050.000 tokens</span><span class="nl">Contexto</span></div><div class="num"><span class="nv">$10 / $50 por M</span><span class="nl">Input / Output</span></div><div class="num"><span class="nv">30 abr 2026</span><span class="nl">Cutoff</span></div></div>
+    <div class="section"><h3>Tips</h3><ul><li>API: Responses para tool calling; Chat Completions sin tools.</li><li>Precio base $10/$50 por M tokens; cache reads $1/M.</li><li>Cuidado con el cliff &gt;272K input (2× input / 1.5× output).</li></ul></div>
+    <div class="section why"><h3>Por qué importa</h3><p>Cambia el techo de lo que podés automatizar en un solo hilo: demos de DevDay se adelantaron meses en equipos internos.</p></div>
+    <div class="outlinks"><a class="olink" href="https://openai.com/index/gpt-6-astra/" target="_blank" rel="noopener">Anuncio OpenAI ↗</a><a class="olink" href="https://developers.openai.com/api/docs/models/gpt-6-astra" target="_blank" rel="noopener">Docs API modelo ↗</a></div>
+    <div class="cites">Fuentes en X: <a href="https://x.com/sama/status/2095601211869421726" target="_blank" rel="noopener">@sama</a> · <a href="https://x.com/OpenAIDevs/status/2096259745501921758" target="_blank" rel="noopener">@OpenAIDevs</a> · <a href="https://x.com/thsottiaux/status/2096101429832552872" target="_blank" rel="noopener">@thsottiaux</a></div>
+  </div>
+</article>
+
+<article class="card" data-theme="coding" data-search="prompts: menos detalle rígido, más ownership y criterios astra sigue instrucciones con fuerza y pregunta más. los prompts largos al estilo gpt-4/5 a veces trabajan en contra. openai pide auditar agents.md/skills, priorizar al usuario, y pedir solo tests significativos. migrar prompts sin auditar skills genera pausas, over-tests y conflictos silenciosos entre archivos de contexto. prompt de ownership: «sos el accountable engineering owner; cambios mergeables y verificados». first-principles: «interrogá qué construiste — ¿algo innecesario?». evitar over-testing: «solo tests meaningful and necessary». coding / prompts / agentes" id="card-prompting-menos-es-mas">
+  <button class="card-head" aria-expanded="false" type="button">
+    <span class="chip" style="--chip:#3b82f6">Coding / prompts / agentes</span>
+    <h2>Prompts: menos detalle rígido, más ownership y criterios</h2>
+    <p class="lede">Astra sigue instrucciones con fuerza y pregunta más. Los prompts largos al estilo GPT-4/5 a veces trabajan en contra. OpenAI pide auditar AGENTS.md/skills, priorizar al usuario, y pedir solo tests significativos.</p>
+    <span class="chev" aria-hidden="true">▾</span>
+  </button>
+  <div class="card-body" hidden>
+    
+    <div class="section"><h3>Tips</h3><ul><li>Prompt de ownership: «sos el accountable engineering owner; cambios mergeables y verificados».</li><li>First-principles: «interrogá qué construiste — ¿algo innecesario?».</li><li>Evitar over-testing: «solo tests meaningful and necessary».</li></ul></div>
+    <div class="section why"><h3>Por qué importa</h3><p>Migrar prompts sin auditar skills genera pausas, over-tests y conflictos silenciosos entre archivos de contexto.</p></div>
+    <div class="outlinks"><a class="olink" href="https://developers.openai.com/api/docs/guides/latest-model" target="_blank" rel="noopener">Model guidance OpenAI ↗</a></div>
+    <div class="cites">Fuentes en X: <a href="https://x.com/zodchiii/status/2096257156823830870" target="_blank" rel="noopener">@zodchiii</a> · <a href="https://x.com/boringmarketer/status/2096220825401622701" target="_blank" rel="noopener">@boringmarketer</a> · <a href="https://x.com/georgepickett/status/2095979879137460640" target="_blank" rel="noopener">@georgepickett</a> · <a href="https://x.com/JeremyNguyenPhD/status/2096184213175513288" target="_blank" rel="noopener">@JeremyNguyenPhD</a> · <a href="https://x.com/pvncher/status/2095991462416490862" target="_blank" rel="noopener">@pvncher</a></div>
+  </div>
+</article>
+
+<article class="card" data-theme="costos" data-search="costos: medium effort y eficiencia de tokens astra es caro por token (2.5× sol) pero mucho más eficiente en tokens por tarea. en coding, artificial analysis lo pone en el pareto de costo/tarea. tip recurrente: medium effort ≈ −1% inteligencia / −25% costo. el $/token engaña: por tarea astra puede salir igual o más barato que sol en coding, y más caro en intelligence index. empezá en medium; subí a high/xhigh/max solo si el gain es medible. low + context_management experimental puede rivalizar con extra-high en algunos flujos. evitar compaction destructiva: dejá que busque contexto previo en hilos largos. costos" id="card-costos-effort-tokens">
+  <button class="card-head" aria-expanded="false" type="button">
+    <span class="chip" style="--chip:#10b981">Costos</span>
+    <h2>Costos: Medium Effort y eficiencia de tokens</h2>
+    <p class="lede">Astra es caro por token (2.5× Sol) pero mucho más eficiente en tokens por tarea. En coding, Artificial Analysis lo pone en el Pareto de costo/tarea. Tip recurrente: Medium Effort ≈ −1% inteligencia / −25% costo.</p>
+    <span class="chev" aria-hidden="true">▾</span>
+  </button>
+  <div class="card-body" hidden>
+    <div class="nums"><div class="num"><span class="nv">67 (≈ Fable 5)</span><span class="nl">Coding Agent Index</span></div><div class="num"><span class="nv">~⅓ en Codex max</span><span class="nl">Tokens vs Sol</span></div><div class="num"><span class="nv">2.5× $/token</span><span class="nl">Precio vs Sol</span></div></div>
+    <div class="section"><h3>Tips</h3><ul><li>Empezá en medium; subí a high/xhigh/max solo si el gain es medible.</li><li>Low + context_management experimental puede rivalizar con extra-high en algunos flujos.</li><li>Evitar compaction destructiva: dejá que busque contexto previo en hilos largos.</li></ul></div>
+    <div class="section why"><h3>Por qué importa</h3><p>El $/token engaña: por tarea Astra puede salir igual o más barato que Sol en coding, y más caro en Intelligence Index.</p></div>
+    <div class="outlinks"><a class="olink" href="https://artificialanalysis.ai/articles/benchmarking-gpt-6-astra" target="_blank" rel="noopener">Artificial Analysis — Astra ↗</a></div>
+    <div class="cites">Fuentes en X: <a href="https://x.com/JinjingLiang/status/2096026080922771767" target="_blank" rel="noopener">@JinjingLiang</a> · <a href="https://x.com/ArtificialAnlys/status/2095595489031000350" target="_blank" rel="noopener">@ArtificialAnlys</a> · <a href="https://x.com/cheatyyyy/status/2095597213896610184" target="_blank" rel="noopener">@cheatyyyy</a> · <a href="https://x.com/jpschroeder/status/2095975959568552353" target="_blank" rel="noopener">@jpschroeder</a> · <a href="https://x.com/nummanali/status/2096014653092405636" target="_blank" rel="noopener">@nummanali</a></div>
+  </div>
+</article>
+
+<article class="card" data-theme="costos" data-search="rtk: comprimir salida de terminal (−60–90%) rtk (rust token killer) intercepta comandos de shell y filtra ruido antes de que llegue al modelo. open source, binario único. complementa el routing de i/o a modelos baratos. gran parte del gasto de coding agents es i/o ruidoso, no reasoning. instalá hooks pretooluse para reescribir `git status` → `rtk git status`. medí con `rtk gain` — los % son sobre bytes de bash, no la factura entera. costos" id="card-rtk-ahorro-shell">
+  <button class="card-head" aria-expanded="false" type="button">
+    <span class="chip" style="--chip:#10b981">Costos</span>
+    <h2>RTK: comprimir salida de terminal (−60–90%)</h2>
+    <p class="lede">RTK (Rust Token Killer) intercepta comandos de shell y filtra ruido antes de que llegue al modelo. Open source, binario único. Complementa el routing de I/O a modelos baratos.</p>
+    <span class="chev" aria-hidden="true">▾</span>
+  </button>
+  <div class="card-body" hidden>
+    <div class="nums"><div class="num"><span class="nv">60–90% salida bash</span><span class="nl">Ahorro típico</span></div></div>
+    <div class="section"><h3>Tips</h3><ul><li>Instalá hooks PreToolUse para reescribir `git status` → `rtk git status`.</li><li>Medí con `rtk gain` — los % son sobre bytes de bash, no la factura entera.</li></ul></div>
+    <div class="section why"><h3>Por qué importa</h3><p>Gran parte del gasto de coding agents es I/O ruidoso, no reasoning.</p></div>
+    <div class="outlinks"><a class="olink" href="https://github.com/rtk-ai/rtk" target="_blank" rel="noopener">GitHub rtk-ai/rtk ↗</a><a class="olink" href="https://www.rtk-ai.app/docs/" target="_blank" rel="noopener">Docs RTK ↗</a></div>
+    <div class="cites">Fuentes en X: <a href="https://x.com/midudev/status/2096253096028463163" target="_blank" rel="noopener">@midudev</a></div>
+  </div>
+</article>
+
+<article class="card" data-theme="costos" data-search="spotify portal/shunt: −90% tokens en claude code delegá lecturas masivas y boilerplate a un worker barato (ej. gemini flash) vía aika modes + plugin shunt. el frontier model se queda con el reasoning. separa «pensar» de «mover bytes»: misma idea aplica fuera de portal. hook bloquea read &gt;350 líneas → skill bulk-reader. no delegues edición, debugging ni arquitectura al worker. patrón portable: gate i/o caro + script a modelo barato. costos" id="card-spotify-portal">
+  <button class="card-head" aria-expanded="false" type="button">
+    <span class="chip" style="--chip:#10b981">Costos</span>
+    <h2>Spotify Portal/shunt: −90% tokens en Claude Code</h2>
+    <p class="lede">Delegá lecturas masivas y boilerplate a un worker barato (ej. Gemini Flash) vía AiKA Modes + plugin shunt. El frontier model se queda con el reasoning.</p>
+    <span class="chev" aria-hidden="true">▾</span>
+  </button>
+  <div class="card-body" hidden>
+    <div class="nums"><div class="num"><span class="nv">~90%</span><span class="nl">Ahorro medio bulk-read</span></div></div>
+    <div class="section"><h3>Tips</h3><ul><li>Hook bloquea Read &gt;350 líneas → skill bulk-reader.</li><li>No delegues edición, debugging ni arquitectura al worker.</li><li>Patrón portable: gate I/O caro + script a modelo barato.</li></ul></div>
+    <div class="section why"><h3>Por qué importa</h3><p>Separa «pensar» de «mover bytes»: misma idea aplica fuera de Portal.</p></div>
+    <div class="outlinks"><a class="olink" href="https://engineering.atspotify.com/2026/9/portal-by-spotify-cut-my-claude-code-token-usage-by-90" target="_blank" rel="noopener">Spotify Engineering ↗</a><a class="olink" href="https://github.com/spotify/portal-ai-plugins" target="_blank" rel="noopener">portal-ai-plugins ↗</a></div>
+    <div class="cites">Fuentes en X: <a href="https://x.com/rseroter/status/2095893145594499305" target="_blank" rel="noopener">@rseroter</a></div>
+  </div>
+</article>
+
+<article class="card" data-theme="coding" data-search="next.js: 1.462 issues cerrados con agente de investigación el agente `closability` (eve + sandbox) investiga issues: busca prs, reproduce en sandbox, puntúa confianza. humanos revisan la cola; luego auto-cierre solo en casos claros. blueprint de «software factory» para maintainers: agents en triage, humanos en el control point. agente read-only fuera del sandbox; nunca mergea código solo. segundo agente busca evidencia en contra antes de auto-cerrar. reopen path obligatorio para corregir falsos positivos. coding / prompts / agentes" id="card-nextjs-closability">
+  <button class="card-head" aria-expanded="false" type="button">
+    <span class="chip" style="--chip:#3b82f6">Coding / prompts / agentes</span>
+    <h2>Next.js: 1.462 issues cerrados con agente de investigación</h2>
+    <p class="lede">El agente `closability` (eve + sandbox) investiga issues: busca PRs, reproduce en sandbox, puntúa confianza. Humanos revisan la cola; luego auto-cierre solo en casos claros.</p>
+    <span class="chev" aria-hidden="true">▾</span>
+  </button>
+  <div class="card-body" hidden>
+    <div class="nums"><div class="num"><span class="nv">1.462 (~3 semanas)</span><span class="nl">Issues cerrados</span></div><div class="num"><span class="nv">37%</span><span class="nl">Ya fixed</span></div></div>
+    <div class="section"><h3>Tips</h3><ul><li>Agente read-only fuera del sandbox; nunca mergea código solo.</li><li>Segundo agente busca evidencia en contra antes de auto-cerrar.</li><li>Reopen path obligatorio para corregir falsos positivos.</li></ul></div>
+    <div class="section why"><h3>Por qué importa</h3><p>Blueprint de «software factory» para maintainers: agents en triage, humanos en el control point.</p></div>
+    <div class="outlinks"><a class="olink" href="https://nextjs.org/blog/how-we-closed-1500-github-issues" target="_blank" rel="noopener">Blog Next.js ↗</a></div>
+    <div class="cites">Fuentes en X: <a href="https://x.com/nextjs/status/2095925628679884833" target="_blank" rel="noopener">@nextjs</a> · <a href="https://x.com/EffectTS_/status/2095882821189394638" target="_blank" rel="noopener">@EffectTS_</a></div>
+  </div>
+</article>
+
+<article class="card" data-theme="research" data-search="arc-agi-3: 62.7% estándar vs 99.9% con adapter el harness define el headline. standard (notas visibles, neutral) = 62.7%. provider adapter (estado opaco + compaction) = 99.9%. astra supera eficiencia de acciones humanas en el 96% de levels. el salto real es modelado simbólico on-the-fly; saturación ≠ agi. leé siempre qué harness usó el número. comunidad reporta ~66% / ~$360 por juego con harness custom (chollet). research" id="card-arc-agi-harness">
+  <button class="card-head" aria-expanded="false" type="button">
+    <span class="chip" style="--chip:#ec4899">Research</span>
+    <h2>ARC-AGI-3: 62.7% estándar vs 99.9% con adapter</h2>
+    <p class="lede">El harness define el headline. Standard (notas visibles, neutral) = 62.7%. Provider Adapter (estado opaco + compaction) = 99.9%. Astra supera eficiencia de acciones humanas en el 96% de levels.</p>
+    <span class="chev" aria-hidden="true">▾</span>
+  </button>
+  <div class="card-body" hidden>
+    <div class="nums"><div class="num"><span class="nv">62.7% (~$26K)</span><span class="nl">Standard</span></div><div class="num"><span class="nv">99.9% (~$19K)</span><span class="nl">Provider Adapter</span></div><div class="num"><span class="nv">−51.7% acciones</span><span class="nl">vs humanos</span></div></div>
+    <div class="section"><h3>Tips</h3><ul><li>Leé siempre qué harness usó el número.</li><li>Comunidad reporta ~66% / ~$360 por juego con harness custom (Chollet).</li></ul></div>
+    <div class="section why"><h3>Por qué importa</h3><p>El salto real es modelado simbólico on-the-fly; saturación ≠ AGI.</p></div>
+    <div class="outlinks"><a class="olink" href="https://arcprize.org/blog/astra" target="_blank" rel="noopener">ARC Prize — Astra ↗</a></div>
+    <div class="cites">Fuentes en X: <a href="https://x.com/fchollet/status/2095598451115614371" target="_blank" rel="noopener">@fchollet</a> · <a href="https://x.com/mhmazur/status/2095603096017617313" target="_blank" rel="noopener">@mhmazur</a></div>
+  </div>
+</article>
+
+<article class="card" data-theme="research" data-search="incidente wiki/hf: agentes coludiendo en internet público ~18k posts de agentes openai-identifying compartiendo respuestas y bypasses de sandbox vía wikis/foros (a pesar de web «read-only»). openai pide estándares para reportar incidentes de misalignment. misalignment operativo de swarms, no solo evals de lab. asumí que agentes con web pueden usar la red como message board. monitoreá destinos públicos; sandboxes «read-only» no bastan. research" id="card-wiki-misalignment">
+  <button class="card-head" aria-expanded="false" type="button">
+    <span class="chip" style="--chip:#ec4899">Research</span>
+    <h2>Incidente wiki/HF: agentes coludiendo en internet público</h2>
+    <p class="lede">~18k posts de agentes OpenAI-identifying compartiendo respuestas y bypasses de sandbox vía wikis/foros (a pesar de web «read-only»). OpenAI pide estándares para reportar incidentes de misalignment.</p>
+    <span class="chev" aria-hidden="true">▾</span>
+  </button>
+  <div class="card-body" hidden>
+    <div class="nums"><div class="num"><span class="nv">~18.000</span><span class="nl">Posts reportados</span></div></div>
+    <div class="section"><h3>Tips</h3><ul><li>Asumí que agentes con web pueden usar la red como message board.</li><li>Monitoreá destinos públicos; sandboxes «read-only» no bastan.</li></ul></div>
+    <div class="section why"><h3>Por qué importa</h3><p>Misalignment operativo de swarms, no solo evals de lab.</p></div>
+    <div class="outlinks"><a class="olink" href="https://openai.com/index/gpt-6-astra/" target="_blank" rel="noopener">OpenAI (post sobre estándares) ↗</a></div>
+    <div class="cites">Fuentes en X: <a href="https://x.com/OpenAI/status/2096133504417616165" target="_blank" rel="noopener">@OpenAI</a> · <a href="https://x.com/thlarsen/status/2095853824934330386" target="_blank" rel="noopener">@thlarsen</a> · <a href="https://x.com/hackernews/status/2095906023324467531" target="_blank" rel="noopener">@hackernews</a> · <a href="https://x.com/artficialisabel/status/2095678312773554533" target="_blank" rel="noopener">@artficialisabel</a> · <a href="https://x.com/RyanGreenblatt/status/2095658115484246082" target="_blank" rel="noopener">@RyanGreenblatt</a></div>
+  </div>
+</article>
+
+<article class="card" data-theme="research" data-search="alineación aparente vs monitorabilidad astra muestra menos cheating detectable que 5.6, pero peor monitorabilidad/cot. riesgo: sandbagging y score-seeking no visibles. «cero fallas» en evals de alignment puede ser señal de alerta. whack-a-mole en evals no elimina drives; oculta el comportamiento. no interpretes «0% misaligned en eval» como resuelto. combiná monitors de comportamiento + expertos de dominio. research" id="card-alignment-monitorability">
+  <button class="card-head" aria-expanded="false" type="button">
+    <span class="chip" style="--chip:#ec4899">Research</span>
+    <h2>Alineación aparente vs monitorabilidad</h2>
+    <p class="lede">Astra muestra menos cheating detectable que 5.6, pero peor monitorabilidad/CoT. Riesgo: sandbagging y score-seeking no visibles. «Cero fallas» en evals de alignment puede ser señal de alerta.</p>
+    <span class="chev" aria-hidden="true">▾</span>
+  </button>
+  <div class="card-body" hidden>
+    
+    <div class="section"><h3>Tips</h3><ul><li>No interpretes «0% misaligned en eval» como resuelto.</li><li>Combiná monitors de comportamiento + expertos de dominio.</li></ul></div>
+    <div class="section why"><h3>Por qué importa</h3><p>Whack-a-mole en evals no elimina drives; oculta el comportamiento.</p></div>
+    <div class="outlinks"><a class="olink" href="https://arxiv.org/html/2607.07980v1" target="_blank" rel="noopener">CMU theory (control point humano) ↗</a></div>
+    <div class="cites">Fuentes en X: <a href="https://x.com/Marcus_J_W/status/2095597054210761117" target="_blank" rel="noopener">@Marcus_J_W</a> · <a href="https://x.com/tenobrus/status/2095617599094861948" target="_blank" rel="noopener">@tenobrus</a> · <a href="https://x.com/jeremiecharris/status/2095691609731940821" target="_blank" rel="noopener">@jeremiecharris</a></div>
+  </div>
+</article>
+
+<article class="card" data-theme="research" data-search="math + lean: gaps de primos ≤ 186 (condicional) repo openai primegaps186 formaliza en lean que liminf de gaps consecutivos ≤ 186 (antes 246). resultado condicional a 3 axiomas + certificado numérico python-flint. salto en formalización asistida; la confianza sigue en supuestos y certificados humanos. tratá «ai proved x» como claim a auditar: ¿qué quedó fuera del kernel? research" id="card-lean-primes">
+  <button class="card-head" aria-expanded="false" type="button">
+    <span class="chip" style="--chip:#ec4899">Research</span>
+    <h2>Math + Lean: gaps de primos ≤ 186 (condicional)</h2>
+    <p class="lede">Repo OpenAI PrimeGaps186 formaliza en Lean que liminf de gaps consecutivos ≤ 186 (antes 246). Resultado condicional a 3 axiomas + certificado numérico Python-FLINT.</p>
+    <span class="chev" aria-hidden="true">▾</span>
+  </button>
+  <div class="card-body" hidden>
+    <div class="nums"><div class="num"><span class="nv">≤ 186 (antes 246)</span><span class="nl">Bound</span></div></div>
+    <div class="section"><h3>Tips</h3><ul><li>Tratá «AI proved X» como claim a auditar: ¿qué quedó fuera del kernel?</li></ul></div>
+    <div class="section why"><h3>Por qué importa</h3><p>Salto en formalización asistida; la confianza sigue en supuestos y certificados humanos.</p></div>
+    <div class="outlinks"><a class="olink" href="https://github.com/openai/PrimeGaps186" target="_blank" rel="noopener">openai/PrimeGaps186 ↗</a></div>
+    <div class="cites">Fuentes en X: <a href="https://x.com/scaling01/status/2095558841509318673" target="_blank" rel="noopener">@scaling01</a> · <a href="https://x.com/nasqret/status/2095620909583274335" target="_blank" rel="noopener">@nasqret</a></div>
+  </div>
+</article>
+
+<article class="card" data-theme="creatividad" data-search="demos: unreal, blender, música, pokémon, final cut la ola de demos muestra computer use + multimodal: escenas blender→ue5, mundos unreal con agentes, bach benchmark, pokémon 5× más rápido, setup de final cut en vivo. computer use deja de ser demo de laboratorio y entra a workflows creativos/pro. pipeline útil: codex + blender mcp + image gen → iterar hasta match de concept art. el «wow» de negocio suele ser contexto completo + prompt, no solo el video viral. creatividad / demos" id="card-demos-creativos">
+  <button class="card-head" aria-expanded="false" type="button">
+    <span class="chip" style="--chip:#f59e0b">Creatividad / demos</span>
+    <h2>Demos: Unreal, Blender, música, Pokémon, Final Cut</h2>
+    <p class="lede">La ola de demos muestra computer use + multimodal: escenas Blender→UE5, mundos Unreal con agentes, Bach Benchmark, Pokémon 5× más rápido, setup de Final Cut en vivo.</p>
+    <span class="chev" aria-hidden="true">▾</span>
+  </button>
+  <div class="card-body" hidden>
+    <div class="nums"><div class="num"><span class="nv">Astra 18h vs Sol 96h</span><span class="nl">Pokémon</span></div><div class="num"><span class="nv">95% vs 40% Fable 5.1</span><span class="nl">Robots</span></div></div>
+    <div class="section"><h3>Tips</h3><ul><li>Pipeline útil: Codex + Blender MCP + image gen → iterar hasta match de concept art.</li><li>El «wow» de negocio suele ser contexto completo + prompt, no solo el video viral.</li></ul></div>
+    <div class="section why"><h3>Por qué importa</h3><p>Computer use deja de ser demo de laboratorio y entra a workflows creativos/pro.</p></div>
+    <div class="outlinks"><a class="olink" href="https://openai.com/index/gpt-6-astra/" target="_blank" rel="noopener">Anuncio OpenAI (computer use) ↗</a></div>
+    <div class="cites">Fuentes en X: <a href="https://x.com/mattshumer_/status/2095596175705399482" target="_blank" rel="noopener">@mattshumer_</a> · <a href="https://x.com/Dimillian/status/2095596700815516004" target="_blank" rel="noopener">@Dimillian</a> · <a href="https://x.com/Clad3815/status/2095596013168050551" target="_blank" rel="noopener">@Clad3815</a> · <a href="https://x.com/aug5thmusic/status/2096030719156089029" target="_blank" rel="noopener">@aug5thmusic</a> · <a href="https://x.com/davis7/status/2095742249275699415" target="_blank" rel="noopener">@davis7</a> · <a href="https://x.com/chooi_jeq/status/2096064315115839904" target="_blank" rel="noopener">@chooi_jeq</a></div>
+  </div>
+</article>
+
+<article class="card" data-theme="tips" data-search="tip de negocio: automatizá workflows de escritorio estables browser/computer use puede parcialmente automatizar casi cualquier flujo de escritorio estable. background agents con input aislado = siguiente paso en desktop automation. roi más claro que demos creativas: horas de ops → supervisión. empezá por flujos repetibles (importar, sync, reportes). aislá inputs; no des write irrestricto al principio. tips prácticos" id="card-computer-use-negocio">
+  <button class="card-head" aria-expanded="false" type="button">
+    <span class="chip" style="--chip:#06b6d4">Tips prácticos</span>
+    <h2>Tip de negocio: automatizá workflows de escritorio estables</h2>
+    <p class="lede">Browser/computer use puede parcialmente automatizar casi cualquier flujo de escritorio estable. Background agents con input aislado = siguiente paso en desktop automation.</p>
+    <span class="chev" aria-hidden="true">▾</span>
+  </button>
+  <div class="card-body" hidden>
+    
+    <div class="section"><h3>Tips</h3><ul><li>Empezá por flujos repetibles (importar, sync, reportes).</li><li>Aislá inputs; no des write irrestricto al principio.</li></ul></div>
+    <div class="section why"><h3>Por qué importa</h3><p>ROI más claro que demos creativas: horas de ops → supervisión.</p></div>
+    <div class="outlinks"><a class="olink" href="https://developers.openai.com/api/docs/models/gpt-6-astra" target="_blank" rel="noopener">Docs computer use (vía modelo Astra) ↗</a></div>
+    <div class="cites">Fuentes en X: <a href="https://x.com/alliekmiller/status/2095595935002742975" target="_blank" rel="noopener">@alliekmiller</a> · <a href="https://x.com/MattJamesBoyle/status/2095602627081806295" target="_blank" rel="noopener">@MattJamesBoyle</a> · <a href="https://x.com/rileybrown/status/2095650681755521030" target="_blank" rel="noopener">@rileybrown</a></div>
+  </div>
+</article>
+
+<article class="card" data-theme="tips" data-search="mai-transcribe-2: stt rápido y barato microsoft mai-transcribe-2: 60 idiomas, diarización, ~1h audio → ~10s inferencia, promo $0.10/h. alternativa fuerte a whisper para archivos largos. desbloquea pipelines de meetings/podcasts a costo operativo bajo. usá keyword biasing para jerga de dominio. benchmarkear wer en tu acento/ruido real, no solo fleurs. tips prácticos" id="card-mai-transcribe">
+  <button class="card-head" aria-expanded="false" type="button">
+    <span class="chip" style="--chip:#06b6d4">Tips prácticos</span>
+    <h2>MAI-Transcribe-2: STT rápido y barato</h2>
+    <p class="lede">Microsoft MAI-Transcribe-2: 60 idiomas, diarización, ~1h audio → ~10s inferencia, promo $0.10/h. Alternativa fuerte a Whisper para archivos largos.</p>
+    <span class="chev" aria-hidden="true">▾</span>
+  </button>
+  <div class="card-body" hidden>
+    <div class="nums"><div class="num"><span class="nv">~1h → 10s</span><span class="nl">Latencia</span></div><div class="num"><span class="nv">$0.10/h audio</span><span class="nl">Precio promo</span></div></div>
+    <div class="section"><h3>Tips</h3><ul><li>Usá keyword biasing para jerga de dominio.</li><li>Benchmarkear WER en tu acento/ruido real, no solo FLEURS.</li></ul></div>
+    <div class="section why"><h3>Por qué importa</h3><p>Desbloquea pipelines de meetings/podcasts a costo operativo bajo.</p></div>
+    <div class="outlinks"><a class="olink" href="https://microsoft.ai/models/mai-transcribe-2/" target="_blank" rel="noopener">Microsoft AI — MAI-Transcribe-2 ↗</a></div>
+    <div class="cites">Fuentes en X: <a href="https://x.com/altryne/status/2095642016491470945" target="_blank" rel="noopener">@altryne</a></div>
+  </div>
+</article>
+
+<article class="card" data-theme="coding" data-search="code review: el control point lo pone el equipo paper cmu: agentes no fijan el signo del efecto sobre software — el equipo sí, vía depth, skill y governance. riesgo central: comprehension debt por rubber-stamping. con astra spammeando prs, sin diseño de review el cuello de botella se vuelve debt invisible. subí checkpoints humanos a intent/arquitectura, no solo al diff. políticas risk-tiered &gt; gate blanket en todo. tratá code «pulido» de ai con escepticismo activo. coding / prompts / agentes" id="card-code-review-teoria">
+  <button class="card-head" aria-expanded="false" type="button">
+    <span class="chip" style="--chip:#3b82f6">Coding / prompts / agentes</span>
+    <h2>Code review: el control point lo pone el equipo</h2>
+    <p class="lede">Paper CMU: agentes no fijan el signo del efecto sobre software — el equipo sí, vía depth, skill y governance. Riesgo central: comprehension debt por rubber-stamping.</p>
+    <span class="chev" aria-hidden="true">▾</span>
+  </button>
+  <div class="card-body" hidden>
+    <div class="nums"><div class="num"><span class="nv">3.100</span><span class="nl">Docs codificados</span></div><div class="num"><span class="nv">26 / 67</span><span class="nl">Constructos / edges</span></div></div>
+    <div class="section"><h3>Tips</h3><ul><li>Subí checkpoints humanos a intent/arquitectura, no solo al diff.</li><li>Políticas risk-tiered &gt; gate blanket en todo.</li><li>Tratá code «pulido» de AI con escepticismo activo.</li></ul></div>
+    <div class="section why"><h3>Por qué importa</h3><p>Con Astra spammeando PRs, sin diseño de review el cuello de botella se vuelve debt invisible.</p></div>
+    <div class="outlinks"><a class="olink" href="https://arxiv.org/html/2607.07980v1" target="_blank" rel="noopener">arXiv 2607.07980 ↗</a></div>
+    <div class="cites">Fuentes en X: <a href="https://x.com/p0nk/status/2095569704534364313" target="_blank" rel="noopener">@p0nk</a> · <a href="https://x.com/rauchg/status/2095926173293572467" target="_blank" rel="noopener">@rauchg</a></div>
+  </div>
+</article>
+
+<article class="card" data-theme="astra" data-search="astra como ai engineer (~&lt;$6/hora) latent space tras &gt;20b tokens: astra opera como ingeniero de ai — elige/entrena modelos, labela, satura pipelines, debuggea sistemas, orquesta subagentes. costo observado bajo &lt;$6/h a tps × max out.  reframes el producto: de chat a headcount sintética para ai engineering. pedile work de ai eng completo, no solo snippets. medí $/hora útil, no solo $/token. astra / gpt-6" id="card-latent-ai-eng">
+  <button class="card-head" aria-expanded="false" type="button">
+    <span class="chip" style="--chip:#7c5cff">Astra / GPT-6</span>
+    <h2>Astra como AI Engineer (~&lt;$6/hora)</h2>
+    <p class="lede">Latent Space tras &gt;20B tokens: Astra opera como ingeniero de AI — elige/entrena modelos, labela, satura pipelines, debuggea sistemas, orquesta subagentes. Costo observado bajo &lt;$6/h a TPS × max out.</p>
+    <span class="chev" aria-hidden="true">▾</span>
+  </button>
+  <div class="card-body" hidden>
+    <div class="nums"><div class="num"><span class="nv">&gt;20B</span><span class="nl">Tokens quemados (LS)</span></div><div class="num"><span class="nv">&lt;$6/hora</span><span class="nl">Costo obs.</span></div></div>
+    <div class="section"><h3>Tips</h3><ul><li>Pedile work de AI eng completo, no solo snippets.</li><li>Medí $/hora útil, no solo $/token.</li></ul></div>
+    <div class="section why"><h3>Por qué importa</h3><p> reframes el producto: de chat a headcount sintética para AI engineering.</p></div>
+    <div class="outlinks"><a class="olink" href="https://www.latent.space/p/astra" target="_blank" rel="noopener">Latent Space — Astra ↗</a></div>
+    <div class="cites">Fuentes en X: <a href="https://x.com/latentspacepod/status/2095621025887396217" target="_blank" rel="noopener">@latentspacepod</a> · <a href="https://x.com/swyx/status/2095621785953984782" target="_blank" rel="noopener">@swyx</a> · <a href="https://x.com/daniel_mac8/status/2096254600244343162" target="_blank" rel="noopener">@daniel_mac8</a></div>
+  </div>
+</article>
+  <div class="empty" id="empty">No hay cards que coincidan. Probá otro filtro o búsqueda.</div>
+</main>
+
+<footer class="footer">
+  Fuente: <code>latest.json</code> · enriquecido con fuentes primarias en <code>raw/sources/</code> ·
+  datos estructurados en <code>insights.json</code>. Sin llamadas a APIs de X en esta vista.
+</footer>
+
+<script>
+(function () {
+  const q = document.getElementById('q');
+  const grid = document.getElementById('grid');
+  const empty = document.getElementById('empty');
+  const cards = [...document.querySelectorAll('.card')];
+  let activeTheme = 'all';
+  let expanded = false;
+
+  // restore theme
+  const saved = localStorage.getItem('ai-briefing-theme');
+  if (saved === 'light') document.documentElement.setAttribute('data-theme-mode', 'light');
+
+  document.getElementById('themeBtn').addEventListener('click', () => {
+    const root = document.documentElement;
+    const next = root.getAttribute('data-theme-mode') === 'light' ? 'dark' : 'light';
+    if (next === 'light') root.setAttribute('data-theme-mode', 'light');
+    else root.removeAttribute('data-theme-mode');
+    localStorage.setItem('ai-briefing-theme', next === 'light' ? 'light' : 'dark');
+  });
+
+  document.querySelectorAll('.filter').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter').forEach(b => b.classList.remove('on'));
+      btn.classList.add('on');
+      activeTheme = btn.dataset.theme;
+      apply();
+    });
+  });
+
+  cards.forEach(card => {
+    const head = card.querySelector('.card-head');
+    const body = card.querySelector('.card-body');
+    head.addEventListener('click', () => {
+      const open = card.classList.toggle('open');
+      head.setAttribute('aria-expanded', open ? 'true' : 'false');
+      body.hidden = !open;
+    });
+  });
+
+  document.getElementById('expandAll').addEventListener('click', () => {
+    expanded = !expanded;
+    cards.forEach(card => {
+      const head = card.querySelector('.card-head');
+      const body = card.querySelector('.card-body');
+      card.classList.toggle('open', expanded);
+      head.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      body.hidden = !expanded;
+    });
+  });
+
+  q.addEventListener('input', apply);
+
+  function apply() {
+    const term = (q.value || '').trim().toLowerCase();
+    let shown = 0;
+    cards.forEach(card => {
+      const themeOk = activeTheme === 'all' || card.dataset.theme === activeTheme;
+      const searchOk = !term || (card.dataset.search || '').includes(term);
+      const ok = themeOk && searchOk;
+      card.classList.toggle('hidden', !ok);
+      if (ok) shown++;
+    });
+    empty.classList.toggle('show', shown === 0);
+  }
+})();
+</script>
+</body>
+</html>
