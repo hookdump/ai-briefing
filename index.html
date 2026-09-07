@@ -85,11 +85,41 @@ a:hover { text-decoration: underline; }
 }
 .pill strong { color: var(--text); font-weight: 600; }
 
-.filters {
-  max-width: 1100px; margin: 0 auto; padding: .5rem 1.25rem 1.25rem;
-  display: flex; flex-wrap: wrap; gap: .5rem; position: sticky; top: var(--nav-h); z-index: 40;
+.filters-wrap {
+  max-width: 1100px; margin: 0 auto; padding: .5rem 1.25rem .75rem;
+  position: sticky; top: var(--nav-h); z-index: 40;
   background: linear-gradient(var(--bg), color-mix(in srgb, var(--bg) 92%, transparent));
-  padding-top: .75rem; padding-bottom: .75rem;
+}
+.filters-toggle {
+  display: none;
+  width: 100%;
+  align-items: center;
+  gap: .5rem;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  border-radius: 12px;
+  padding: .55rem .85rem;
+  cursor: pointer;
+  font: inherit;
+  font-size: .88rem;
+  text-align: left;
+}
+.filters-toggle .ft-label { font-weight: 600; }
+.filters-toggle .ft-active {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: .82rem;
+  max-width: 55%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.filters-toggle .ft-chev { transition: transform .2s; opacity: .7; }
+.filters-wrap.open .filters-toggle .ft-chev { transform: rotate(180deg); }
+.filters {
+  display: flex; flex-wrap: wrap; gap: .5rem;
+  padding: .35rem 0 .25rem;
 }
 .filter {
   border: 1px solid var(--border); background: var(--panel); color: var(--text);
@@ -175,9 +205,13 @@ a:hover { text-decoration: underline; }
 }
 
 @media (max-width: 640px) {
-  .nav { gap: .5rem; }
+  .nav { gap: .5rem; padding: 0 .75rem; }
   .brand { font-size: .9rem; }
   .nav-actions .label { display: none; }
+  .filters-toggle { display: flex; }
+  .filters { display: none; padding-top: .65rem; }
+  .filters-wrap.open .filters { display: flex; }
+  .filters-wrap { padding-left: .75rem; padding-right: .75rem; }
 }
 </style>
 </head>
@@ -207,10 +241,22 @@ a:hover { text-decoration: underline; }
   </div>
 </section>
 
-<nav class="filters" aria-label="Filtros por tema">
-  <button type="button" class="filter on" data-theme="all">Todos</button>
-  <button type="button" class="filter" data-theme="astra" style="--chip:#7c5cff">Astra / GPT-6</button><button type="button" class="filter" data-theme="coding" style="--chip:#3b82f6">Coding / prompts / agentes</button><button type="button" class="filter" data-theme="costos" style="--chip:#10b981">Costos</button><button type="button" class="filter" data-theme="creatividad" style="--chip:#f59e0b">Creatividad / demos</button><button type="button" class="filter" data-theme="research" style="--chip:#ec4899">Research</button><button type="button" class="filter" data-theme="tips" style="--chip:#06b6d4">Tips prácticos</button>
-</nav>
+<div class="filters-wrap" id="filtersWrap">
+  <button type="button" class="filters-toggle" id="filtersToggle" aria-expanded="false" aria-controls="filtersPanel">
+    <span class="ft-label">Filtros</span>
+    <span class="ft-active" id="filtersActiveLabel">Todos</span>
+    <span class="ft-chev" aria-hidden="true">▾</span>
+  </button>
+  <nav class="filters" id="filtersPanel" aria-label="Filtros por tema">
+    <button type="button" class="filter on" data-theme="all">Todos</button>
+    <button type="button" class="filter" data-theme="astra" style="--chip:#7c5cff">Astra / GPT-6</button>
+    <button type="button" class="filter" data-theme="coding" style="--chip:#3b82f6">Coding / prompts / agentes</button>
+    <button type="button" class="filter" data-theme="costos" style="--chip:#10b981">Costos</button>
+    <button type="button" class="filter" data-theme="creatividad" style="--chip:#f59e0b">Creatividad / demos</button>
+    <button type="button" class="filter" data-theme="research" style="--chip:#ec4899">Research</button>
+    <button type="button" class="filter" data-theme="tips" style="--chip:#06b6d4">Tips prácticos</button>
+  </nav>
+</div>
 
 <main class="grid" id="grid">
 
@@ -482,12 +528,27 @@ a:hover { text-decoration: underline; }
     localStorage.setItem('ai-briefing-theme', next === 'light' ? 'light' : 'dark');
   });
 
+  const filtersWrap = document.getElementById('filtersWrap');
+  const filtersToggle = document.getElementById('filtersToggle');
+  const filtersActiveLabel = document.getElementById('filtersActiveLabel');
+
+  filtersToggle.addEventListener('click', () => {
+    const open = filtersWrap.classList.toggle('open');
+    filtersToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
   document.querySelectorAll('.filter').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.filter').forEach(b => b.classList.remove('on'));
       btn.classList.add('on');
       activeTheme = btn.dataset.theme;
+      filtersActiveLabel.textContent = btn.textContent.trim();
       apply();
+      // on mobile, collapse after choosing
+      if (window.matchMedia('(max-width: 640px)').matches) {
+        filtersWrap.classList.remove('open');
+        filtersToggle.setAttribute('aria-expanded', 'false');
+      }
     });
   });
 
