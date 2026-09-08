@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AI Briefing — Ignacio · ~100 bookmarks</title>
-<meta name="description" content="Briefing de insights desde bookmarks de AI (24 jun–5 sep 2026 AR). No es un feed de tweets."/>
+<title>AI Briefing — Ignacio · ~131 bookmarks</title>
+<meta name="description" content="Briefing de insights desde bookmarks de AI (24 jun 2026–7 sep 2026 AR). No es un feed de tweets."/>
 <style>
 :root {
   --bg: #0b0d12;
@@ -230,14 +230,15 @@ a:hover { text-decoration: underline; }
 
 <section class="hero">
   <h1>Insights de AI, no un feed de tweets</h1>
-  <p>Síntesis editorial a partir de ~100 bookmarks de la carpeta AI.
+  <p>Síntesis editorial a partir de ~131 bookmarks de la carpeta AI.
   Takeaways, tips, números y por qué importa — agrupados por tema.
-  Las citas a X van solo como notas al pie.</p>
+  Las citas a X van solo como notas al pie. <strong>Novedades de hoy:</strong> harnesses YC, Astra jagged, video→CAD→print, Herdr 0.9, guía ilustrada de agents, creative writing, transparencia HF, rewrite Rust.</p>
   <div class="meta">
-    <div class="pill"><strong>~100</strong> bookmarks</div>
-    <div class="pill"><strong>24 jun – 5 sep 2026</strong> (AR)</div>
-    <div class="pill"><strong>15</strong> insight cards</div>
-    <div class="pill">Generado <strong>5 sep 2026</strong></div>
+    <div class="pill"><strong>~131</strong> bookmarks</div>
+    <div class="pill"><strong>24 jun 2026 – 7 sep 2026</strong> (AR)</div>
+    <div class="pill"><strong>30</strong> insight cards</div>
+    <div class="pill">Generado <strong>8 sep 2026</strong></div>
+    <div class="pill"><strong>+13</strong> bookmarks nuevos · <strong>+8</strong> cards</div>
   </div>
 </section>
 
@@ -260,7 +261,262 @@ a:hover { text-decoration: underline; }
 
 <main class="grid" id="grid">
 
-<article class="card" data-theme="astra" data-search="gpt-6 astra: el flagship de openai (sep 2026) astra (`gpt-6-astra`) es el modelo de punta de openai para trabajo extremo a extremo: coding agentic, computer use, science y professional work. ventana 1.05m tokens; effort low→max (sin `none`). cambia el techo de lo que podés automatizar en un solo hilo: demos de devday se adelantaron meses en equipos internos. api: responses para tool calling; chat completions sin tools. precio base $10/$50 por m tokens; cache reads $1/m. cuidado con el cliff &gt;272k input (2× input / 1.5× output). astra / gpt-6" id="card-astra-lanzamiento">
+<article class="card" data-theme="coding" data-search="harnesses: de «scaffolding» a research real (deep dive yc) y combinator juntó researchers/founders: los mismos pesos que hacen 30% en arc-agi suben a 95% con un harness mejor. cubren self-improving harnesses (prime agent / rlm), contexto como cache l1–l3, mensajería entre agentes, openjarvis local (~800× más barato que cloud) y qm (el harness interno de yc con flota ~50 agentes). si el salto de capacidad viene del loop alrededor del modelo, invertir en harness (evaluación, contexto, orquestación) compite con fine-tuning — y es portable entre labs. coding / prompts / agentes tratá el harness como producto: expresividad (sandbox/modelo elegibles, budgets por goal) &gt; prompts cosméticos. para loops overnight: failover de providers + grind tool con presupuesto evita que el agente muera por rate limit. local stack: cloud model puede optimizar el stack on-device (openjarvis); medí $/tarea, no solo calidad de un shot. arc-agi mismos pesos 30% → 95% local vs cloud (claim) ~800× más barato flota yc (qm) ~50 agentes herdr.dev — runtime de coding agents https://herdr.dev eq-bench (evaluación activa) https://eqbench.com/ ycombinator" id="card-harnesses-frontier-yc">
+  <button class="card-head" aria-expanded="false" type="button">
+    <span class="chip" style="--chip:#3b82f6">Coding / prompts / agentes</span>
+    <h2>Harnesses: de «scaffolding» a research real (deep dive YC)</h2>
+    <p class="lede">Y Combinator juntó researchers/founders: los mismos pesos que hacen 30% en ARC-AGI suben a 95% con un harness mejor. Cubren self-improving harnesses (Prime Agent / RLM), contexto como cache L1–L3, mensajería entre agentes, OpenJarvis local (~800× más barato que cloud) y QM (el harness interno de YC con flota ~50 agentes).</p>
+    <span class="chev" aria-hidden="true">▾</span>
+  </button>
+  <div class="card-body" hidden>
+    <div class="nums"><div class="num"><span class="nv">30% → 95%</span><span class="nl">ARC-AGI mismos pesos</span></div><div class="num"><span class="nv">~800× más barato</span><span class="nl">Local vs cloud (claim)</span></div><div class="num"><span class="nv">~50 agentes</span><span class="nl">Flota YC (QM)</span></div></div>
+    <div class="section"><h3>Tips</h3><ul><li>Tratá el harness como producto: expresividad (sandbox/modelo elegibles, budgets por goal) &gt; prompts cosméticos.</li><li>Para loops overnight: failover de providers + grind tool con presupuesto evita que el agente muera por rate limit.</li><li>Local stack: cloud model puede optimizar el stack on-device (OpenJarvis); medí $/tarea, no solo calidad de un shot.</li></ul></div>
+    <div class="section why"><h3>Por qué importa</h3><p>Si el salto de capacidad viene del loop alrededor del modelo, invertir en harness (evaluación, contexto, orquestación) compite con fine-tuning — y es portable entre labs.</p></div>
+    <div class="section"><img src="https://pbs.twimg.com/amplify_video_thumb/2096839439423242240/img/zLD6gaK59n7gOe_r.jpg" alt="" loading="lazy" style="max-width:100%;border-radius:12px;border:1px solid var(--border)"/></div>
+    <div class="outlinks"><a class="olink" href="https://herdr.dev" target="_blank" rel="noopener">herdr.dev — runtime de coding agents ↗</a><a class="olink" href="https://eqbench.com/" target="_blank" rel="noopener">EQ-Bench (evaluación activa) ↗</a></div>
+    <div class="cites">Fuentes en X: <a href="https://x.com/ycombinator/status/2096970626036855197" target="_blank" rel="noopener">@ycombinator</a></div>
+  </div>
+</article>
+
+<article class="card" data-theme="astra" data-search="astra jagged: 48/48 «i&#x27;m not a robot», mazebench 14%, y el elefante sharif shameem: astra completó los 48 niveles del juego «i&#x27;m not a robot». mazebench (spatial 3d) quedó en ~14% tras 60+ horas — curran lo usa para remarcar que el avance es jagged: cada usuario ve solo la parte del elefante que toca su tarea. la narrativa post-lanzamiento se parte: demos espectaculares + benches duros mediocres. eso es jaggedness, no «hype vs flop». astra / gpt-6 no extrapolés de un viral demos a «agi en x» — pedí el bench que mide tu workflow (coding ≠ spatial ≠ captcha-like). para product: mapeá en qué «lóbulo» del elefante está tu usuario y medí ahí, no en leaderboards genéricos. si el modelo tritura ui games pero falla spatial long-horizon, diseñá harnesses que compensen (estado, mapas, memory). i&#x27;m not a robot 48/48 mazebench (astra) ~14% tiempo mazebench 60+ h eq-bench 4 leaderboard https://eqbench.com/ sharifshameem andrewcurran_" id="card-astra-jagged-capabilities">
+  <button class="card-head" aria-expanded="false" type="button">
+    <span class="chip" style="--chip:#7c5cff">Astra / GPT-6</span>
+    <h2>Astra jagged: 48/48 «I&#x27;m Not a Robot», MazeBench 14%, y el elefante</h2>
+    <p class="lede">Sharif Shameem: Astra completó los 48 niveles del juego «I&#x27;m Not a Robot». MazeBench (spatial 3D) quedó en ~14% tras 60+ horas — Curran lo usa para remarcar que el avance es jagged: cada usuario ve solo la parte del elefante que toca su tarea.</p>
+    <span class="chev" aria-hidden="true">▾</span>
+  </button>
+  <div class="card-body" hidden>
+    <div class="nums"><div class="num"><span class="nv">48/48</span><span class="nl">I&#x27;m Not a Robot</span></div><div class="num"><span class="nv">~14%</span><span class="nl">MazeBench (Astra)</span></div><div class="num"><span class="nv">60+ h</span><span class="nl">Tiempo MazeBench</span></div></div>
+    <div class="section"><h3>Tips</h3><ul><li>No extrapolés de un viral demos a «AGI en X» — pedí el bench que mide tu workflow (coding ≠ spatial ≠ captcha-like).</li><li>Para product: mapeá en qué «lóbulo» del elefante está tu usuario y medí ahí, no en leaderboards genéricos.</li><li>Si el modelo tritura UI games pero falla spatial long-horizon, diseñá harnesses que compensen (estado, mapas, memory).</li></ul></div>
+    <div class="section why"><h3>Por qué importa</h3><p>La narrativa post-lanzamiento se parte: demos espectaculares + benches duros mediocres. Eso es jaggedness, no «hype vs flop».</p></div>
+    <div class="section"><img src="https://pbs.twimg.com/media/HRnyYTZasAAudH_.jpg" alt="" loading="lazy" style="max-width:100%;border-radius:12px;border:1px solid var(--border)"/></div>
+    <div class="outlinks"><a class="olink" href="https://eqbench.com/" target="_blank" rel="noopener">EQ-Bench 4 leaderboard ↗</a></div>
+    <div class="cites">Fuentes en X: <a href="https://x.com/sharifshameem/status/2096847916837314853" target="_blank" rel="noopener">@sharifshameem</a> · <a href="https://x.com/AndrewCurran_/status/2096973604890247296" target="_blank" rel="noopener">@AndrewCurran_</a></div>
+  </div>
+</article>
+
+<article class="card" data-theme="creatividad" data-search="«touch of agi»: video → diseño cad → pieza 3d al primer intento daniel griesser grabó ~4 min explicando un problema de ducha (con calibre), le pasó el video a gpt-6 astra ultra, obtuvo sketch interactivo y computer-use en fusion 360 (pieza parametrizada + fillets). la imprimió y encajó a la primera. tim soret lo marca como señal de positioning a 10 años. cierra el loop físico (voz+medida → cad → objeto) sin ser un lab demo. es el computer-use que importa fuera de slides. creatividad / demos pipeline útil: video multimodal → brief estructurado → cad tool-use → print/test. pedí parametrización desde el día 1. en fusion free: read-only libera cupos de diseños editables (truco que el agente enseñó en vivo). para tu oficio: grabá el problema con medidas en cámara; no empieces por el prompt abstracto. video input ~4 min fit 3d print 1er intento impresiones del post ~675k post original (fotos) https://x.com/danielgri/status/2096852983468216790 danielgri timsoret" id="card-astra-video-cad-print">
+  <button class="card-head" aria-expanded="false" type="button">
+    <span class="chip" style="--chip:#f59e0b">Creatividad / demos</span>
+    <h2>«Touch of AGI»: video → diseño CAD → pieza 3D al primer intento</h2>
+    <p class="lede">Daniel Griesser grabó ~4 min explicando un problema de ducha (con calibre), le pasó el video a GPT-6 Astra Ultra, obtuvo sketch interactivo y computer-use en Fusion 360 (pieza parametrizada + fillets). La imprimió y encajó a la primera. Tim Soret lo marca como señal de positioning a 10 años.</p>
+    <span class="chev" aria-hidden="true">▾</span>
+  </button>
+  <div class="card-body" hidden>
+    <div class="nums"><div class="num"><span class="nv">~4 min</span><span class="nl">Video input</span></div><div class="num"><span class="nv">1er intento</span><span class="nl">Fit 3D print</span></div><div class="num"><span class="nv">~675k</span><span class="nl">Impresiones del post</span></div></div>
+    <div class="section"><h3>Tips</h3><ul><li>Pipeline útil: video multimodal → brief estructurado → CAD tool-use → print/test. Pedí parametrización desde el día 1.</li><li>En Fusion free: read-only libera cupos de diseños editables (truco que el agente enseñó en vivo).</li><li>Para tu oficio: grabá el problema con medidas en cámara; no empieces por el prompt abstracto.</li></ul></div>
+    <div class="section why"><h3>Por qué importa</h3><p>Cierra el loop físico (voz+medida → CAD → objeto) sin ser un lab demo. Es el computer-use que importa fuera de slides.</p></div>
+    <div class="section"><img src="https://pbs.twimg.com/media/HRmDpI2XIAYYQSB.jpg" alt="" loading="lazy" style="max-width:100%;border-radius:12px;border:1px solid var(--border)"/></div>
+    <div class="outlinks"><a class="olink" href="https://x.com/DanielGri/status/2096852983468216790" target="_blank" rel="noopener">Post original (fotos) ↗</a></div>
+    <div class="cites">Fuentes en X: <a href="https://x.com/DanielGri/status/2096852983468216790" target="_blank" rel="noopener">@DanielGri</a> · <a href="https://x.com/timsoret/status/2096984384737878498" target="_blank" rel="noopener">@timsoret</a></div>
+  </div>
+</article>
+
+<article class="card" data-theme="coding" data-search="herdr 0.9.0: todas tus máquinas en un solo cliente herdr (runtime donde viven coding agents) soltó 0.9.0: controlás agentes/proyectos locales y remotos sin saltar de terminal. la ui default es lista simple; la comunidad customiza workspaces (promisecatch) y ya hay preset open-source de sidebar (testy-cool/herdr-sidebar-config, generado con codex). el cuello de botella de fleets de agentes ya no es el modelo: es orquestar terminales en varias máquinas sin perder el hilo. coding / prompts / agentes instalá con `curl -fssl https://herdr.dev/install.sh | sh` y sumá máquinas por ssh (`herdr machine add …`). si la ui te parece pobre: no es límite del producto — armá spaces por servicio y agrupá tabs; podés pedir a un coding agent que clone un preset. pensalo como server en background: cerrás la tapa y los agentes siguen; reabrís y retomás layout. versión 0.9.0 installs (sitio) ~743k clis detectados 21 herdr.dev https://herdr.dev herdr-sidebar-config (github) https://github.com/testy-cool/herdr-sidebar-config herdrdev promisecatch testy_cool" id="card-herdr-multi-machine">
+  <button class="card-head" aria-expanded="false" type="button">
+    <span class="chip" style="--chip:#3b82f6">Coding / prompts / agentes</span>
+    <h2>Herdr 0.9.0: todas tus máquinas en un solo cliente</h2>
+    <p class="lede">Herdr (runtime donde viven coding agents) soltó 0.9.0: controlás agentes/proyectos locales y remotos sin saltar de terminal. La UI default es lista simple; la comunidad customiza workspaces (PromiseCatch) y ya hay preset open-source de sidebar (testy-cool/herdr-sidebar-config, generado con Codex).</p>
+    <span class="chev" aria-hidden="true">▾</span>
+  </button>
+  <div class="card-body" hidden>
+    <div class="nums"><div class="num"><span class="nv">0.9.0</span><span class="nl">Versión</span></div><div class="num"><span class="nv">~743k</span><span class="nl">Installs (sitio)</span></div><div class="num"><span class="nv">21</span><span class="nl">CLIs detectados</span></div></div>
+    <div class="section"><h3>Tips</h3><ul><li>Instalá con `curl -fsSL https://herdr.dev/install.sh | sh` y sumá máquinas por SSH (`herdr machine add …`).</li><li>Si la UI te parece pobre: no es límite del producto — armá spaces por servicio y agrupá tabs; podés pedir a un coding agent que clone un preset.</li><li>Pensalo como server en background: cerrás la tapa y los agentes siguen; reabrís y retomás layout.</li></ul></div>
+    <div class="section why"><h3>Por qué importa</h3><p>El cuello de botella de fleets de agentes ya no es el modelo: es orquestar terminales en varias máquinas sin perder el hilo.</p></div>
+    <div class="section"><img src="https://pbs.twimg.com/amplify_video_thumb/2097038215244824576/img/x86fLyHLRCqRiNI9.jpg" alt="" loading="lazy" style="max-width:100%;border-radius:12px;border:1px solid var(--border)"/></div>
+    <div class="outlinks"><a class="olink" href="https://herdr.dev" target="_blank" rel="noopener">herdr.dev ↗</a><a class="olink" href="https://github.com/testy-cool/herdr-sidebar-config" target="_blank" rel="noopener">herdr-sidebar-config (GitHub) ↗</a></div>
+    <div class="cites">Fuentes en X: <a href="https://x.com/herdrdev/status/2097048015303229936" target="_blank" rel="noopener">@herdrdev</a> · <a href="https://x.com/PromiseCatch/status/2096848686794035224" target="_blank" rel="noopener">@PromiseCatch</a> · <a href="https://x.com/testy_cool/status/2096936174568796663" target="_blank" rel="noopener">@testy_cool</a></div>
+  </div>
+</article>
+
+<article class="card" data-theme="tips" data-search="an illustrated guide to ai agents (alammar × grootendorst) ya salió jay alammar y maarten grootendorst publicaron el ebook (kindle/o&#x27;reilly; print en semanas): &gt;300 figuras sobre memory, tools, planning, evaluation, multi-agent y code agents. enfoque en conceptos que sobrevivan el churn + tinyagent que armás vos en python. chip huyen / omar khattab / ofir press lo recomiendan. agentes se adoptan más rápido de lo que se entienden; un mapa visual estable es onboarding para equipos que no pueden leer papers cada semana. tips prácticos leé por anatomía del agente (cap. 1) y zoom por componente — no persigas frameworks de la semana. código: usá el repo vivo, no tipées el libro; el print queda fijo, el repo recibe fixes. si liderás producto: las ilustraciones alcanzan sin code; el tinyagent es opcional o se lo pedís a tu coding agent. figuras &gt;300 pub. ebook 2 sep 2026 isbn-13 979-8341662667 amazon — illustrated guide to ai agents https://www.amazon.com/illustrated-guide-ai-agents-concepts-ebook/dp/b0h381pnpr/ o&#x27;reilly — an illustrated guide https://www.oreilly.com/library/view/an-illustrated-guide/9798341662681/ jayalammar" id="card-illustrated-guide-agents">
+  <button class="card-head" aria-expanded="false" type="button">
+    <span class="chip" style="--chip:#06b6d4">Tips prácticos</span>
+    <h2>An Illustrated Guide to AI Agents (Alammar × Grootendorst) ya salió</h2>
+    <p class="lede">Jay Alammar y Maarten Grootendorst publicaron el ebook (Kindle/O&#x27;Reilly; print en semanas): &gt;300 figuras sobre memory, tools, planning, evaluation, multi-agent y code agents. Enfoque en conceptos que sobrevivan el churn + TinyAgent que armás vos en Python. Chip Huyen / Omar Khattab / Ofir Press lo recomiendan.</p>
+    <span class="chev" aria-hidden="true">▾</span>
+  </button>
+  <div class="card-body" hidden>
+    <div class="nums"><div class="num"><span class="nv">&gt;300</span><span class="nl">Figuras</span></div><div class="num"><span class="nv">2 sep 2026</span><span class="nl">Pub. ebook</span></div><div class="num"><span class="nv">979-8341662667</span><span class="nl">ISBN-13</span></div></div>
+    <div class="section"><h3>Tips</h3><ul><li>Leé por anatomía del agente (cap. 1) y zoom por componente — no persigas frameworks de la semana.</li><li>Código: usá el repo vivo, no tipées el libro; el print queda fijo, el repo recibe fixes.</li><li>Si liderás producto: las ilustraciones alcanzan sin code; el TinyAgent es opcional o se lo pedís a tu coding agent.</li></ul></div>
+    <div class="section why"><h3>Por qué importa</h3><p>Agentes se adoptan más rápido de lo que se entienden; un mapa visual estable es onboarding para equipos que no pueden leer papers cada semana.</p></div>
+    <div class="section"><img src="https://pbs.twimg.com/media/HRnMNwDbAAA0fxu.jpg" alt="" loading="lazy" style="max-width:100%;border-radius:12px;border:1px solid var(--border)"/></div>
+    <div class="outlinks"><a class="olink" href="https://www.amazon.com/Illustrated-Guide-AI-Agents-Concepts-ebook/dp/B0H381PNPR/" target="_blank" rel="noopener">Amazon — Illustrated Guide to AI Agents ↗</a><a class="olink" href="https://www.oreilly.com/library/view/an-illustrated-guide/9798341662681/" target="_blank" rel="noopener">O&#x27;Reilly — An Illustrated Guide ↗</a></div>
+    <div class="cites">Fuentes en X: <a href="https://x.com/JayAlammar/status/2096935042387714521" target="_blank" rel="noopener">@JayAlammar</a></div>
+  </div>
+</article>
+
+<article class="card" data-theme="creatividad" data-search="creative writing: muse spark &gt; astra/fable (y el house style mata) sam paech (eq-bench) comparó gpt-6-astra, fable 5.1, muse spark 1.3 y gemini 3.8 flash en escritura creativa. prefiere muse spark: entrega lo pedido sin house style invasivo. fable cae en «claudeslop»; astra «olvidó» escribir en párrafos. consejo: volvé a leer rollouts con ojos humanos. post-training empuja estilos de producto; la calidad literaria se degrada aunque suban benches técnicos. creatividad / demos para prose: no asumas que el sota coding/agent = mejor writer; medí con samples ciegos. si el modelo impone estilo de casa, pedí constraints explícitos (párrafos, voz, anti-sycophancy) o cambiá de modelo para creative. usá eq-bench / samples propios como sanity check aparte del leaderboard de coding. preferido (subjetivo) muse spark 1.3 comparados 4 modelos fallo astra citado sin párrafos eq-bench https://eqbench.com/ sam_paech" id="card-creative-writing-house-style">
+  <button class="card-head" aria-expanded="false" type="button">
+    <span class="chip" style="--chip:#f59e0b">Creatividad / demos</span>
+    <h2>Creative writing: Muse Spark &gt; Astra/Fable (y el house style mata)</h2>
+    <p class="lede">Sam Paech (EQ-Bench) comparó GPT-6-Astra, Fable 5.1, Muse Spark 1.3 y Gemini 3.8 flash en escritura creativa. Prefiere Muse Spark: entrega lo pedido sin house style invasivo. Fable cae en «claudeslop»; Astra «olvidó» escribir en párrafos. Consejo: volvé a leer rollouts con ojos humanos.</p>
+    <span class="chev" aria-hidden="true">▾</span>
+  </button>
+  <div class="card-body" hidden>
+    <div class="nums"><div class="num"><span class="nv">Muse Spark 1.3</span><span class="nl">Preferido (subjetivo)</span></div><div class="num"><span class="nv">4 modelos</span><span class="nl">Comparados</span></div><div class="num"><span class="nv">sin párrafos</span><span class="nl">Fallo Astra citado</span></div></div>
+    <div class="section"><h3>Tips</h3><ul><li>Para prose: no asumas que el SOTA coding/agent = mejor writer; medí con samples ciegos.</li><li>Si el modelo impone estilo de casa, pedí constraints explícitos (párrafos, voz, anti-sycophancy) o cambiá de modelo para creative.</li><li>Usá EQ-Bench / samples propios como sanity check aparte del leaderboard de coding.</li></ul></div>
+    <div class="section why"><h3>Por qué importa</h3><p>Post-training empuja estilos de producto; la calidad literaria se degrada aunque suban benches técnicos.</p></div>
+    <div class="section"><img src="https://pbs.twimg.com/media/HRlpxwhaIAADrVw.jpg" alt="" loading="lazy" style="max-width:100%;border-radius:12px;border:1px solid var(--border)"/></div>
+    <div class="outlinks"><a class="olink" href="https://eqbench.com/" target="_blank" rel="noopener">EQ-Bench ↗</a></div>
+    <div class="cites">Fuentes en X: <a href="https://x.com/sam_paech/status/2096833534807953784" target="_blank" rel="noopener">@sam_paech</a></div>
+  </div>
+</article>
+
+<article class="card" data-theme="research" data-search="clem (hugging face): 100× más transparencia tras el cyberattack de agentes clément delangue se pregunta qué hubiera pasado sin divulgar públicamente el agent cyberattack. refuerza que hace falta ~100× más transparencia en ai; sin eso, el riesgo sistémico crece. encaja con la línea de standards de incidentes de misalignment (no solo model cards). sin normas de disclosure, los labs optimizan silencio; los incidentes de agentes ya son operativos, no teóricos. research en tu org: tratá incidentes de agentes (sandbox bypass, collusion, data exfil) como postmortems publicables con redaction, no solo tickets internos. separá transparencia de marketing: logs, evals fallidas y near-misses importan más que demos. pedí a vendors barras de disclosure comparables a preparedness/rsp — no solo scores de bench. multiplicador pedido ~100× transparencia likes del post ~2.2k clementdelangue" id="card-transparencia-cyber-disclosure">
+  <button class="card-head" aria-expanded="false" type="button">
+    <span class="chip" style="--chip:#ec4899">Research</span>
+    <h2>Clem (Hugging Face): 100× más transparencia tras el cyberattack de agentes</h2>
+    <p class="lede">Clément Delangue se pregunta qué hubiera pasado sin divulgar públicamente el agent cyberattack. Refuerza que hace falta ~100× más transparencia en AI; sin eso, el riesgo sistémico crece. Encaja con la línea de standards de incidentes de misalignment (no solo model cards).</p>
+    <span class="chev" aria-hidden="true">▾</span>
+  </button>
+  <div class="card-body" hidden>
+    <div class="nums"><div class="num"><span class="nv">~100× transparencia</span><span class="nl">Multiplicador pedido</span></div><div class="num"><span class="nv">~2.2k</span><span class="nl">Likes del post</span></div></div>
+    <div class="section"><h3>Tips</h3><ul><li>En tu org: tratá incidentes de agentes (sandbox bypass, collusion, data exfil) como postmortems publicables con redaction, no solo tickets internos.</li><li>Separá transparencia de marketing: logs, evals fallidas y near-misses importan más que demos.</li><li>Pedí a vendors barras de disclosure comparables a Preparedness/RSP — no solo scores de bench.</li></ul></div>
+    <div class="section why"><h3>Por qué importa</h3><p>Sin normas de disclosure, los labs optimizan silencio; los incidentes de agentes ya son operativos, no teóricos.</p></div>
+    
+    
+    <div class="cites">Fuentes en X: <a href="https://x.com/ClementDelangue/status/2096981079940911107" target="_blank" rel="noopener">@ClementDelangue</a></div>
+  </div>
+</article>
+
+<article class="card" data-theme="coding" data-search="malte ubl: tokens + proxies humanos para reescribir codecs/drivers c en rust el cto de vercel pide a openai y anthropic donar tokens (e idealmente «meat proxies») para reescribir sistemáticamente libs c comunes — codecs de imagen/video, db drivers, etc. — a lenguajes memory-safe. motivo: tsunami de vulns descubiertas; hay que actuar. une dos olas: discovery acelerado de vulns (también con ai) y coding agents capaces de rewrites grandes — falta coordinar compute donado. coding / prompts / agentes priorizá targets con blast radius alto (parsers de formatos, drivers) y harnesses de differential fuzzing c vs rust. combiná agentes con oráculos (tests existentes, oss-fuzz) — no confíes en «compila = seguro». si tenés presupuesto de tokens de lab: este es un bien público medible (cves evitados). lenguaje destino rust (memory-safe) targets codecs, drivers, … cramforce" id="card-rust-rewrite-c-libs">
+  <button class="card-head" aria-expanded="false" type="button">
+    <span class="chip" style="--chip:#3b82f6">Coding / prompts / agentes</span>
+    <h2>Malte Ubl: tokens + proxies humanos para reescribir codecs/drivers C en Rust</h2>
+    <p class="lede">El CTO de Vercel pide a OpenAI y Anthropic donar tokens (e idealmente «meat proxies») para reescribir sistemáticamente libs C comunes — codecs de imagen/video, DB drivers, etc. — a lenguajes memory-safe. Motivo: tsunami de vulns descubiertas; hay que actuar.</p>
+    <span class="chev" aria-hidden="true">▾</span>
+  </button>
+  <div class="card-body" hidden>
+    <div class="nums"><div class="num"><span class="nv">Rust (memory-safe)</span><span class="nl">Lenguaje destino</span></div><div class="num"><span class="nv">codecs, drivers, …</span><span class="nl">Targets</span></div></div>
+    <div class="section"><h3>Tips</h3><ul><li>Priorizá targets con blast radius alto (parsers de formatos, drivers) y harnesses de differential fuzzing C vs Rust.</li><li>Combiná agentes con oráculos (tests existentes, OSS-Fuzz) — no confíes en «compila = seguro».</li><li>Si tenés presupuesto de tokens de lab: este es un bien público medible (CVEs evitados).</li></ul></div>
+    <div class="section why"><h3>Por qué importa</h3><p>Une dos olas: discovery acelerado de vulns (también con AI) y coding agents capaces de rewrites grandes — falta coordinar compute donado.</p></div>
+    
+    
+    <div class="cites">Fuentes en X: <a href="https://x.com/cramforce/status/2097017327485354456" target="_blank" rel="noopener">@cramforce</a></div>
+  </div>
+</article>
+
+<article class="card" data-theme="research" data-search="an alien mind: el chief scientist de openai pide frenar el max-speed scaling jakub pachocki (ensayo 6 sep 2026) dice que ningún lab resolvió alignment/monitoring lo suficiente para seguir escalando a máxima velocidad. espera rsi en pocos años, cot monitoring degradándose, y slowdowns voluntarios + barras de seguridad compartidas. es la voz de research de openai, post-astra, pidiendo frenos colectivos justo cuando las capacidades (y los incidentes de agentes) subieron el listón. research leé el ensayo como señal de coordinación (no solo pr): preparedness / rsp deberían volverse barras auditables. separá «astra más alineado que sol» de «alignment resuelto» — el post niega lo segundo. en debate público: no alcanza con narrar la tech como fuerza de la naturaleza; hace falta mitigación concreta (@natpurser). fecha ensayo 6 sep 2026 rsi (su expectativa) pocos años postura scaling no max-speed mucho más unite.ai — resumen an alien mind https://www.unite.ai/in-an-alien-mind-openais-jakub-pachocki-urges-shared-safety-bars/ tnw — slowdowns https://thenextweb.com/news/openai-slowdown-pachocki-alien-mind-research-intern-compute runtimewire — safety pact https://runtimewire.com/article/openai-chief-scientist-seeks-safety-pact-as-lab-scales-agent-research sksq96 natpurser merettm" id="card-an-alien-mind">
+  <button class="card-head" aria-expanded="false" type="button">
+    <span class="chip" style="--chip:#ec4899">Research</span>
+    <h2>An Alien Mind: el chief scientist de OpenAI pide frenar el max-speed scaling</h2>
+    <p class="lede">Jakub Pachocki (ensayo 6 sep 2026) dice que ningún lab resolvió alignment/monitoring lo suficiente para seguir escalando a máxima velocidad. Espera RSI en pocos años, CoT monitoring degradándose, y slowdowns voluntarios + barras de seguridad compartidas.</p>
+    <span class="chev" aria-hidden="true">▾</span>
+  </button>
+  <div class="card-body" hidden>
+    <div class="nums"><div class="num"><span class="nv">6 sep 2026</span><span class="nl">Fecha ensayo</span></div><div class="num"><span class="nv">pocos años</span><span class="nl">RSI (su expectativa)</span></div><div class="num"><span class="nv">no max-speed mucho más</span><span class="nl">Postura scaling</span></div></div>
+    <div class="section"><h3>Tips</h3><ul><li>Leé el ensayo como señal de coordinación (no solo PR): Preparedness / RSP deberían volverse barras auditables.</li><li>Separá «Astra más alineado que Sol» de «alignment resuelto» — el post niega lo segundo.</li><li>En debate público: no alcanza con narrar la tech como fuerza de la naturaleza; hace falta mitigación concreta (@NatPurser).</li></ul></div>
+    <div class="section why"><h3>Por qué importa</h3><p>Es la voz de research de OpenAI, post-Astra, pidiendo frenos colectivos justo cuando las capacidades (y los incidentes de agentes) subieron el listón.</p></div>
+    
+    <div class="outlinks"><a class="olink" href="https://www.unite.ai/in-an-alien-mind-openais-jakub-pachocki-urges-shared-safety-bars/" target="_blank" rel="noopener">Unite.AI — resumen An Alien Mind ↗</a><a class="olink" href="https://thenextweb.com/news/openai-slowdown-pachocki-alien-mind-research-intern-compute" target="_blank" rel="noopener">TNW — slowdowns ↗</a><a class="olink" href="https://runtimewire.com/article/openai-chief-scientist-seeks-safety-pact-as-lab-scales-agent-research" target="_blank" rel="noopener">RuntimeWire — safety pact ↗</a></div>
+    <div class="cites">Fuentes en X: <a href="https://x.com/sksq96/status/2096696605663547400" target="_blank" rel="noopener">@sksq96</a> · <a href="https://x.com/NatPurser/status/2096703350616047691" target="_blank" rel="noopener">@NatPurser</a> · <a href="https://x.com/merettm/status/2096630018495377464" target="_blank" rel="noopener">@merettm</a></div>
+  </div>
+</article>
+
+<article class="card" data-theme="research" data-search="speculative decoding: tutorial neurips + cuándo deja de ser lossless lily zhang y madison kanna publicaron un tutorial interactivo (neurips education track): draft model propone tokens, el target verifica con rejection sampling. cuatro generaciones (eagle-3 → dflash → dspark → dflash 2). losslessbench muestra que fuera de math/coding la aceleración puede cambiar calidad. casi todo llm hosted usa speculative decoding; entender cuándo es «gratis» vs cuándo deforma la distribución evita sorpresas en prod. research en serving, umbral de aceptación &lt; 1.0 (sglang) = ya no es lossless: ganás speed, sesgás al draft. medí τ (acceptance length) y calidad de tarea juntos — τ alto no garantiza mejor ui/creative. probalo: sitio + lab en modal; losslessbench cubre coding, agents, creative, guardrails, frontend. eagle-3 speedup (paper) hasta ~6.5× dflash 2 τ (reportado) ~+21% vs dflash openrouter no medido ~83% del tráfico tutorial interactivo https://neurips2026-speculative-decoding.vercel.app/ leviathan et al. 2023 (origen) https://arxiv.org/abs/2211.17192 lily_gpupoor madisonkanna" id="card-speculative-decoding-neurips">
+  <button class="card-head" aria-expanded="false" type="button">
+    <span class="chip" style="--chip:#ec4899">Research</span>
+    <h2>Speculative decoding: tutorial NeurIPS + cuándo deja de ser lossless</h2>
+    <p class="lede">Lily Zhang y Madison Kanna publicaron un tutorial interactivo (NeurIPS Education Track): draft model propone tokens, el target verifica con rejection sampling. Cuatro generaciones (EAGLE-3 → DFlash → DSpark → DFlash 2). LosslessBench muestra que fuera de math/coding la aceleración puede cambiar calidad.</p>
+    <span class="chev" aria-hidden="true">▾</span>
+  </button>
+  <div class="card-body" hidden>
+    <div class="nums"><div class="num"><span class="nv">hasta ~6.5×</span><span class="nl">EAGLE-3 speedup (paper)</span></div><div class="num"><span class="nv">~+21% vs DFlash</span><span class="nl">DFlash 2 τ (reportado)</span></div><div class="num"><span class="nv">~83% del tráfico</span><span class="nl">OpenRouter no medido</span></div></div>
+    <div class="section"><h3>Tips</h3><ul><li>En serving, umbral de aceptación &lt; 1.0 (SGLang) = ya no es lossless: ganás speed, sesgás al draft.</li><li>Medí τ (acceptance length) y calidad de tarea juntos — τ alto no garantiza mejor UI/creative.</li><li>Probalo: sitio + lab en Modal; LosslessBench cubre coding, agents, creative, guardrails, frontend.</li></ul></div>
+    <div class="section why"><h3>Por qué importa</h3><p>Casi todo LLM hosted usa speculative decoding; entender cuándo es «gratis» vs cuándo deforma la distribución evita sorpresas en prod.</p></div>
+    
+    <div class="outlinks"><a class="olink" href="https://neurips2026-speculative-decoding.vercel.app/" target="_blank" rel="noopener">Tutorial interactivo ↗</a><a class="olink" href="https://arxiv.org/abs/2211.17192" target="_blank" rel="noopener">Leviathan et al. 2023 (origen) ↗</a></div>
+    <div class="cites">Fuentes en X: <a href="https://x.com/lily_gpupoor/status/2096663433068556361" target="_blank" rel="noopener">@lily_gpupoor</a> · <a href="https://x.com/Madisonkanna/status/2096667925658890604" target="_blank" rel="noopener">@Madisonkanna</a></div>
+  </div>
+</article>
+
+<article class="card" data-theme="coding" data-search="ripwire: mapa estructural del repo sin embeddings ni vector db red hat et abrió ripwire: binario c++23 + mcp con tree-sitter (21 lenguajes). arma un mapa determinista (símbolos, callers, churn, blast radius, tests) y responde con presupuesto de tokens — sin indexer llm ni daemon. context retrieval barato y determinista es el cuello de botella real de coding agents; ripwire ataca eso sin rag. coding / prompts / agentes usalo cuando el agente se pierde grepeando: pedí «qué importa para x» + callers + tests a correr. firmas ~80% menos bytes que bodies; claim ~5% de tokens vs grep-and-read. encaja como tool mcp al lado de coding agents (no reemplaza reasoning). lenguajes (tree-sitter) 21 deps runtime 0 (binario) stars (al citar) ~911 github redhat-et/ripwire https://github.com/redhat-et/ripwire agenticgirl" id="card-ripwire-context">
+  <button class="card-head" aria-expanded="false" type="button">
+    <span class="chip" style="--chip:#3b82f6">Coding / prompts / agentes</span>
+    <h2>ripwire: mapa estructural del repo sin embeddings ni vector DB</h2>
+    <p class="lede">Red Hat ET abrió ripwire: binario C++23 + MCP con Tree-sitter (21 lenguajes). Arma un mapa determinista (símbolos, callers, churn, blast radius, tests) y responde con presupuesto de tokens — sin indexer LLM ni daemon.</p>
+    <span class="chev" aria-hidden="true">▾</span>
+  </button>
+  <div class="card-body" hidden>
+    <div class="nums"><div class="num"><span class="nv">21</span><span class="nl">Lenguajes (Tree-sitter)</span></div><div class="num"><span class="nv">0 (binario)</span><span class="nl">Deps runtime</span></div><div class="num"><span class="nv">~911</span><span class="nl">Stars (al citar)</span></div></div>
+    <div class="section"><h3>Tips</h3><ul><li>Usalo cuando el agente se pierde grepeando: pedí «qué importa para X» + callers + tests a correr.</li><li>Firmas ~80% menos bytes que bodies; claim ~5% de tokens vs grep-and-read.</li><li>Encaja como tool MCP al lado de coding agents (no reemplaza reasoning).</li></ul></div>
+    <div class="section why"><h3>Por qué importa</h3><p>Context retrieval barato y determinista es el cuello de botella real de coding agents; ripwire ataca eso sin RAG.</p></div>
+    
+    <div class="outlinks"><a class="olink" href="https://github.com/redhat-et/ripwire" target="_blank" rel="noopener">GitHub redhat-et/ripwire ↗</a></div>
+    <div class="cites">Fuentes en X: <a href="https://x.com/agenticgirl/status/2096612794145911260" target="_blank" rel="noopener">@agenticgirl</a></div>
+  </div>
+</article>
+
+<article class="card" data-theme="coding" data-search="code review se mueve a la planificación (y al agente orquestador) varios bookmarks convergen: casi no hay review humano en el pr. el alineamiento vive en el plan (ref + fable); el orquestador fan-outea a opus, corre conformance/security/tests con codex, y avisa solo si hace falta input. matt pocock suma tips para prs ai-authored legibles. si el volumen de prs explotó, el control point tiene que subir de abstracción o el review humano no escala. coding / prompts / agentes invertí review en decisiones del plan; en el pr pedí evidencia (tests, conformance, preview deploy). para prs de agentes: diffs legibles (/show-me), pseudocódigo, mermaid, evidencia de tdd; algunos graban walkthrough playwright+tts. ref: chats que no se evaporan — decisiones persistentes (ref.tools). capa de review plan → pr ai → humano on-call herramientas citadas ref, fable, codex, opus ref https://ref.tools the fuzzing book (verificación) https://www.fuzzingbook.org/ vivekxk gergelyorosz mattpocockuk dominiktornow" id="card-review-en-planificacion">
+  <button class="card-head" aria-expanded="false" type="button">
+    <span class="chip" style="--chip:#3b82f6">Coding / prompts / agentes</span>
+    <h2>Code review se mueve a la planificación (y al agente orquestador)</h2>
+    <p class="lede">Varios bookmarks convergen: casi no hay review humano en el PR. El alineamiento vive en el plan (Ref + Fable); el orquestador fan-outea a Opus, corre conformance/security/tests con Codex, y avisa solo si hace falta input. Matt Pocock suma tips para PRs AI-authored legibles.</p>
+    <span class="chev" aria-hidden="true">▾</span>
+  </button>
+  <div class="card-body" hidden>
+    <div class="nums"><div class="num"><span class="nv">plan → PR AI → humano on-call</span><span class="nl">Capa de review</span></div><div class="num"><span class="nv">Ref, Fable, Codex, Opus</span><span class="nl">Herramientas citadas</span></div></div>
+    <div class="section"><h3>Tips</h3><ul><li>Invertí review en decisiones del plan; en el PR pedí evidencia (tests, conformance, preview deploy).</li><li>Para PRs de agentes: diffs legibles (/show-me), pseudocódigo, Mermaid, evidencia de TDD; algunos graban walkthrough Playwright+TTS.</li><li>Ref: chats que no se evaporan — decisiones persistentes (ref.tools).</li></ul></div>
+    <div class="section why"><h3>Por qué importa</h3><p>Si el volumen de PRs explotó, el control point tiene que subir de abstracción o el review humano no escala.</p></div>
+    
+    <div class="outlinks"><a class="olink" href="https://ref.tools" target="_blank" rel="noopener">Ref ↗</a><a class="olink" href="https://www.fuzzingbook.org/" target="_blank" rel="noopener">The Fuzzing Book (verificación) ↗</a></div>
+    <div class="cites">Fuentes en X: <a href="https://x.com/VivekxK/status/2096592325895958850" target="_blank" rel="noopener">@VivekxK</a> · <a href="https://x.com/GergelyOrosz/status/2096565330701144077" target="_blank" rel="noopener">@GergelyOrosz</a> · <a href="https://x.com/mattpocockuk/status/2096666329495257563" target="_blank" rel="noopener">@mattpocockuk</a> · <a href="https://x.com/DominikTornow/status/2096561550651957635" target="_blank" rel="noopener">@DominikTornow</a></div>
+  </div>
+</article>
+
+<article class="card" data-theme="tips" data-search="la generación ya está; falta verificación (fuzzing, dst, formal) dominik tornow: con agents escribiendo código, el half que falta es verification — fuzzing, property-based testing, deterministic simulation testing, formal verification. dst = test runner; vos definís inputs y oráculos. fuzzing book sigue siendo la biblia práctica. sin verificación principiada, el throughput de código ai solo acelera bugs a prod. tips prácticos tratá al agente como generador; tu ventaja es oráculos y propiedades. dst: pensalo como runner determinista; generación de input + juicio de estado son tuyos. empezá por fuzzingbook.org (notebooks ejecutables) antes de formal verification pesada. the fuzzing book https://www.fuzzingbook.org/ dominiktornow sanjaynadaraja dominiktornow" id="card-verificacion-post-generacion">
+  <button class="card-head" aria-expanded="false" type="button">
+    <span class="chip" style="--chip:#06b6d4">Tips prácticos</span>
+    <h2>La generación ya está; falta verificación (fuzzing, DST, formal)</h2>
+    <p class="lede">Dominik Tornow: con agents escribiendo código, el half que falta es verification — fuzzing, property-based testing, deterministic simulation testing, formal verification. DST = test runner; vos definís inputs y oráculos. Fuzzing Book sigue siendo la biblia práctica.</p>
+    <span class="chev" aria-hidden="true">▾</span>
+  </button>
+  <div class="card-body" hidden>
+    
+    <div class="section"><h3>Tips</h3><ul><li>Tratá al agente como generador; tu ventaja es oráculos y propiedades.</li><li>DST: pensalo como runner determinista; generación de input + juicio de estado son tuyos.</li><li>Empezá por fuzzingbook.org (notebooks ejecutables) antes de formal verification pesada.</li></ul></div>
+    <div class="section why"><h3>Por qué importa</h3><p>Sin verificación principiada, el throughput de código AI solo acelera bugs a prod.</p></div>
+    
+    <div class="outlinks"><a class="olink" href="https://www.fuzzingbook.org/" target="_blank" rel="noopener">The Fuzzing Book ↗</a></div>
+    <div class="cites">Fuentes en X: <a href="https://x.com/DominikTornow/status/2096561550651957635" target="_blank" rel="noopener">@DominikTornow</a> · <a href="https://x.com/SanjayNadaraja/status/2096695896448565525" target="_blank" rel="noopener">@SanjayNadaraja</a> · <a href="https://x.com/DominikTornow/status/2096587973609545940" target="_blank" rel="noopener">@DominikTornow</a></div>
+  </div>
+</article>
+
+<article class="card" data-theme="coding" data-search="ouroboros: harness de auto-research con goal que evoluciona cli + skills que dejan el harness en loop con un objetivo self-evolving. fallback automático claude code → codex/pi cuando se acaba el usage, y resume al volver. el patrón «agente que se reescribe el brief» es el siguiente paso después de un one-shot coding agent. coding / prompts / agentes útil para research overnight: goal evolutivo + failover de providers evita que el loop muera por rate limit. guardrails: acotá el goal y pedí checkpoints humanos antes de spends grandes. kirbytheodor" id="card-ouroboros-auto-research">
+  <button class="card-head" aria-expanded="false" type="button">
+    <span class="chip" style="--chip:#3b82f6">Coding / prompts / agentes</span>
+    <h2>Ouroboros: harness de auto-research con goal que evoluciona</h2>
+    <p class="lede">CLI + skills que dejan el harness en loop con un objetivo self-evolving. Fallback automático Claude Code → Codex/pi cuando se acaba el usage, y resume al volver.</p>
+    <span class="chev" aria-hidden="true">▾</span>
+  </button>
+  <div class="card-body" hidden>
+    
+    <div class="section"><h3>Tips</h3><ul><li>Útil para research overnight: goal evolutivo + failover de providers evita que el loop muera por rate limit.</li><li>Guardrails: acotá el goal y pedí checkpoints humanos antes de spends grandes.</li></ul></div>
+    <div class="section why"><h3>Por qué importa</h3><p>El patrón «agente que se reescribe el brief» es el siguiente paso después de un one-shot coding agent.</p></div>
+    
+    
+    <div class="cites">Fuentes en X: <a href="https://x.com/kirbytheodor/status/2096709268317573225" target="_blank" rel="noopener">@kirbytheodor</a></div>
+  </div>
+</article>
+
+<article class="card" data-theme="astra" data-search="astra en la práctica: puzzles lógicos 100% y «coworker» rápido fakepsyho reporta que astra resolvió (sin código) todos los logic puzzles que le tiró — incl. championship-hard y grids enormes; sol 5.6 ~20–30%. lugaricano tras 24h: no un salto espectacular, sino un coworker claro, profundo y órdenes de magnitud más rápido que fable. complementa los números de api: la sensación de «coworker» + reasoning difícil es lo que mueve adopción día a día. astra / gpt-6 para reasoning puro, pedí paths explicados (no solo la respuesta) — ahí se nota el salto vs sol. compará latencia percibida vs fable en tu propio workflow antes de migrar stacks. puzzles astra (anecdótico) 100% resueltos sol 5.6 (mismo set) ~20–30% docs astra (api) https://developers.openai.com/api/docs/models/gpt-6-astra fakepsyho lugaricano" id="card-astra-puzzles-coworker">
+  <button class="card-head" aria-expanded="false" type="button">
+    <span class="chip" style="--chip:#7c5cff">Astra / GPT-6</span>
+    <h2>Astra en la práctica: puzzles lógicos 100% y «coworker» rápido</h2>
+    <p class="lede">FakePsyho reporta que Astra resolvió (sin código) todos los logic puzzles que le tiró — incl. championship-hard y grids enormes; Sol 5.6 ~20–30%. Lugaricano tras 24h: no un salto espectacular, sino un coworker claro, profundo y órdenes de magnitud más rápido que Fable.</p>
+    <span class="chev" aria-hidden="true">▾</span>
+  </button>
+  <div class="card-body" hidden>
+    <div class="nums"><div class="num"><span class="nv">100% resueltos</span><span class="nl">Puzzles Astra (anecdótico)</span></div><div class="num"><span class="nv">~20–30%</span><span class="nl">Sol 5.6 (mismo set)</span></div></div>
+    <div class="section"><h3>Tips</h3><ul><li>Para reasoning puro, pedí paths explicados (no solo la respuesta) — ahí se nota el salto vs Sol.</li><li>Compará latencia percibida vs Fable en tu propio workflow antes de migrar stacks.</li></ul></div>
+    <div class="section why"><h3>Por qué importa</h3><p>Complementa los números de API: la sensación de «coworker» + reasoning difícil es lo que mueve adopción día a día.</p></div>
+    
+    <div class="outlinks"><a class="olink" href="https://developers.openai.com/api/docs/models/gpt-6-astra" target="_blank" rel="noopener">Docs Astra (API) ↗</a></div>
+    <div class="cites">Fuentes en X: <a href="https://x.com/FakePsyho/status/2096588951251243219" target="_blank" rel="noopener">@FakePsyho</a> · <a href="https://x.com/lugaricano/status/2096540782341595590" target="_blank" rel="noopener">@lugaricano</a></div>
+  </div>
+</article>
+
+<article class="card" data-theme="astra" data-search="gpt-6 astra: el flagship de openai (sep 2026) astra (`gpt-6-astra`) es el modelo de punta de openai para trabajo extremo a extremo: coding agentic, computer use, science y professional work. ventana 1.05m tokens; effort low→max (sin `none`). cambia el techo de lo que podés automatizar en un solo hilo: demos de devday se adelantaron meses en equipos internos. astra / gpt-6 api: responses para tool calling; chat completions sin tools. precio base $10/$50 por m tokens; cache reads $1/m. cuidado con el cliff &gt;272k input (2× input / 1.5× output). contexto 1.050.000 tokens input / output $10 / $50 por m cutoff 30 abr 2026 anuncio openai https://openai.com/index/gpt-6-astra/ docs api modelo https://developers.openai.com/api/docs/models/gpt-6-astra sama openaidevs thsottiaux" id="card-astra-lanzamiento">
   <button class="card-head" aria-expanded="false" type="button">
     <span class="chip" style="--chip:#7c5cff">Astra / GPT-6</span>
     <h2>GPT-6 Astra: el flagship de OpenAI (sep 2026)</h2>
@@ -271,12 +527,13 @@ a:hover { text-decoration: underline; }
     <div class="nums"><div class="num"><span class="nv">1.050.000 tokens</span><span class="nl">Contexto</span></div><div class="num"><span class="nv">$10 / $50 por M</span><span class="nl">Input / Output</span></div><div class="num"><span class="nv">30 abr 2026</span><span class="nl">Cutoff</span></div></div>
     <div class="section"><h3>Tips</h3><ul><li>API: Responses para tool calling; Chat Completions sin tools.</li><li>Precio base $10/$50 por M tokens; cache reads $1/M.</li><li>Cuidado con el cliff &gt;272K input (2× input / 1.5× output).</li></ul></div>
     <div class="section why"><h3>Por qué importa</h3><p>Cambia el techo de lo que podés automatizar en un solo hilo: demos de DevDay se adelantaron meses en equipos internos.</p></div>
+    
     <div class="outlinks"><a class="olink" href="https://openai.com/index/gpt-6-astra/" target="_blank" rel="noopener">Anuncio OpenAI ↗</a><a class="olink" href="https://developers.openai.com/api/docs/models/gpt-6-astra" target="_blank" rel="noopener">Docs API modelo ↗</a></div>
     <div class="cites">Fuentes en X: <a href="https://x.com/sama/status/2095601211869421726" target="_blank" rel="noopener">@sama</a> · <a href="https://x.com/OpenAIDevs/status/2096259745501921758" target="_blank" rel="noopener">@OpenAIDevs</a> · <a href="https://x.com/thsottiaux/status/2096101429832552872" target="_blank" rel="noopener">@thsottiaux</a></div>
   </div>
 </article>
 
-<article class="card" data-theme="coding" data-search="prompts: menos detalle rígido, más ownership y criterios astra sigue instrucciones con fuerza y pregunta más. los prompts largos al estilo gpt-4/5 a veces trabajan en contra. openai pide auditar agents.md/skills, priorizar al usuario, y pedir solo tests significativos. migrar prompts sin auditar skills genera pausas, over-tests y conflictos silenciosos entre archivos de contexto. prompt de ownership: «sos el accountable engineering owner; cambios mergeables y verificados». first-principles: «interrogá qué construiste — ¿algo innecesario?». evitar over-testing: «solo tests meaningful and necessary». coding / prompts / agentes" id="card-prompting-menos-es-mas">
+<article class="card" data-theme="coding" data-search="prompts: menos detalle rígido, más ownership y criterios astra sigue instrucciones con fuerza y pregunta más. los prompts largos al estilo gpt-4/5 a veces trabajan en contra. openai pide auditar agents.md/skills, priorizar al usuario, y pedir solo tests significativos. migrar prompts sin auditar skills genera pausas, over-tests y conflictos silenciosos entre archivos de contexto. coding / prompts / agentes prompt de ownership: «sos el accountable engineering owner; cambios mergeables y verificados». first-principles: «interrogá qué construiste — ¿algo innecesario?». evitar over-testing: «solo tests meaningful and necessary». model guidance openai https://developers.openai.com/api/docs/guides/latest-model zodchiii boringmarketer georgepickett jeremynguyenphd pvncher" id="card-prompting-menos-es-mas">
   <button class="card-head" aria-expanded="false" type="button">
     <span class="chip" style="--chip:#3b82f6">Coding / prompts / agentes</span>
     <h2>Prompts: menos detalle rígido, más ownership y criterios</h2>
@@ -287,12 +544,13 @@ a:hover { text-decoration: underline; }
     
     <div class="section"><h3>Tips</h3><ul><li>Prompt de ownership: «sos el accountable engineering owner; cambios mergeables y verificados».</li><li>First-principles: «interrogá qué construiste — ¿algo innecesario?».</li><li>Evitar over-testing: «solo tests meaningful and necessary».</li></ul></div>
     <div class="section why"><h3>Por qué importa</h3><p>Migrar prompts sin auditar skills genera pausas, over-tests y conflictos silenciosos entre archivos de contexto.</p></div>
+    
     <div class="outlinks"><a class="olink" href="https://developers.openai.com/api/docs/guides/latest-model" target="_blank" rel="noopener">Model guidance OpenAI ↗</a></div>
     <div class="cites">Fuentes en X: <a href="https://x.com/zodchiii/status/2096257156823830870" target="_blank" rel="noopener">@zodchiii</a> · <a href="https://x.com/boringmarketer/status/2096220825401622701" target="_blank" rel="noopener">@boringmarketer</a> · <a href="https://x.com/georgepickett/status/2095979879137460640" target="_blank" rel="noopener">@georgepickett</a> · <a href="https://x.com/JeremyNguyenPhD/status/2096184213175513288" target="_blank" rel="noopener">@JeremyNguyenPhD</a> · <a href="https://x.com/pvncher/status/2095991462416490862" target="_blank" rel="noopener">@pvncher</a></div>
   </div>
 </article>
 
-<article class="card" data-theme="costos" data-search="costos: medium effort y eficiencia de tokens astra es caro por token (2.5× sol) pero mucho más eficiente en tokens por tarea. en coding, artificial analysis lo pone en el pareto de costo/tarea. tip recurrente: medium effort ≈ −1% inteligencia / −25% costo. el $/token engaña: por tarea astra puede salir igual o más barato que sol en coding, y más caro en intelligence index. empezá en medium; subí a high/xhigh/max solo si el gain es medible. low + context_management experimental puede rivalizar con extra-high en algunos flujos. evitar compaction destructiva: dejá que busque contexto previo en hilos largos. costos" id="card-costos-effort-tokens">
+<article class="card" data-theme="costos" data-search="costos: medium effort y eficiencia de tokens astra es caro por token (2.5× sol) pero mucho más eficiente en tokens por tarea. en coding, artificial analysis lo pone en el pareto de costo/tarea. tip recurrente: medium effort ≈ −1% inteligencia / −25% costo. el $/token engaña: por tarea astra puede salir igual o más barato que sol en coding, y más caro en intelligence index. costos empezá en medium; subí a high/xhigh/max solo si el gain es medible. low + context_management experimental puede rivalizar con extra-high en algunos flujos. evitar compaction destructiva: dejá que busque contexto previo en hilos largos. coding agent index 67 (≈ fable 5) tokens vs sol ~⅓ en codex max precio vs sol 2.5× $/token artificial analysis — astra https://artificialanalysis.ai/articles/benchmarking-gpt-6-astra jinjingliang artificialanlys cheatyyyy jpschroeder nummanali" id="card-costos-effort-tokens">
   <button class="card-head" aria-expanded="false" type="button">
     <span class="chip" style="--chip:#10b981">Costos</span>
     <h2>Costos: Medium Effort y eficiencia de tokens</h2>
@@ -303,12 +561,13 @@ a:hover { text-decoration: underline; }
     <div class="nums"><div class="num"><span class="nv">67 (≈ Fable 5)</span><span class="nl">Coding Agent Index</span></div><div class="num"><span class="nv">~⅓ en Codex max</span><span class="nl">Tokens vs Sol</span></div><div class="num"><span class="nv">2.5× $/token</span><span class="nl">Precio vs Sol</span></div></div>
     <div class="section"><h3>Tips</h3><ul><li>Empezá en medium; subí a high/xhigh/max solo si el gain es medible.</li><li>Low + context_management experimental puede rivalizar con extra-high en algunos flujos.</li><li>Evitar compaction destructiva: dejá que busque contexto previo en hilos largos.</li></ul></div>
     <div class="section why"><h3>Por qué importa</h3><p>El $/token engaña: por tarea Astra puede salir igual o más barato que Sol en coding, y más caro en Intelligence Index.</p></div>
+    
     <div class="outlinks"><a class="olink" href="https://artificialanalysis.ai/articles/benchmarking-gpt-6-astra" target="_blank" rel="noopener">Artificial Analysis — Astra ↗</a></div>
     <div class="cites">Fuentes en X: <a href="https://x.com/JinjingLiang/status/2096026080922771767" target="_blank" rel="noopener">@JinjingLiang</a> · <a href="https://x.com/ArtificialAnlys/status/2095595489031000350" target="_blank" rel="noopener">@ArtificialAnlys</a> · <a href="https://x.com/cheatyyyy/status/2095597213896610184" target="_blank" rel="noopener">@cheatyyyy</a> · <a href="https://x.com/jpschroeder/status/2095975959568552353" target="_blank" rel="noopener">@jpschroeder</a> · <a href="https://x.com/nummanali/status/2096014653092405636" target="_blank" rel="noopener">@nummanali</a></div>
   </div>
 </article>
 
-<article class="card" data-theme="costos" data-search="rtk: comprimir salida de terminal (−60–90%) rtk (rust token killer) intercepta comandos de shell y filtra ruido antes de que llegue al modelo. open source, binario único. complementa el routing de i/o a modelos baratos. gran parte del gasto de coding agents es i/o ruidoso, no reasoning. instalá hooks pretooluse para reescribir `git status` → `rtk git status`. medí con `rtk gain` — los % son sobre bytes de bash, no la factura entera. costos" id="card-rtk-ahorro-shell">
+<article class="card" data-theme="costos" data-search="rtk: comprimir salida de terminal (−60–90%) rtk (rust token killer) intercepta comandos de shell y filtra ruido antes de que llegue al modelo. open source, binario único. complementa el routing de i/o a modelos baratos. gran parte del gasto de coding agents es i/o ruidoso, no reasoning. costos instalá hooks pretooluse para reescribir `git status` → `rtk git status`. medí con `rtk gain` — los % son sobre bytes de bash, no la factura entera. ahorro típico 60–90% salida bash github rtk-ai/rtk https://github.com/rtk-ai/rtk docs rtk https://www.rtk-ai.app/docs/ midudev" id="card-rtk-ahorro-shell">
   <button class="card-head" aria-expanded="false" type="button">
     <span class="chip" style="--chip:#10b981">Costos</span>
     <h2>RTK: comprimir salida de terminal (−60–90%)</h2>
@@ -319,12 +578,13 @@ a:hover { text-decoration: underline; }
     <div class="nums"><div class="num"><span class="nv">60–90% salida bash</span><span class="nl">Ahorro típico</span></div></div>
     <div class="section"><h3>Tips</h3><ul><li>Instalá hooks PreToolUse para reescribir `git status` → `rtk git status`.</li><li>Medí con `rtk gain` — los % son sobre bytes de bash, no la factura entera.</li></ul></div>
     <div class="section why"><h3>Por qué importa</h3><p>Gran parte del gasto de coding agents es I/O ruidoso, no reasoning.</p></div>
+    
     <div class="outlinks"><a class="olink" href="https://github.com/rtk-ai/rtk" target="_blank" rel="noopener">GitHub rtk-ai/rtk ↗</a><a class="olink" href="https://www.rtk-ai.app/docs/" target="_blank" rel="noopener">Docs RTK ↗</a></div>
     <div class="cites">Fuentes en X: <a href="https://x.com/midudev/status/2096253096028463163" target="_blank" rel="noopener">@midudev</a></div>
   </div>
 </article>
 
-<article class="card" data-theme="costos" data-search="spotify portal/shunt: −90% tokens en claude code delegá lecturas masivas y boilerplate a un worker barato (ej. gemini flash) vía aika modes + plugin shunt. el frontier model se queda con el reasoning. separa «pensar» de «mover bytes»: misma idea aplica fuera de portal. hook bloquea read &gt;350 líneas → skill bulk-reader. no delegues edición, debugging ni arquitectura al worker. patrón portable: gate i/o caro + script a modelo barato. costos" id="card-spotify-portal">
+<article class="card" data-theme="costos" data-search="spotify portal/shunt: −90% tokens en claude code delegá lecturas masivas y boilerplate a un worker barato (ej. gemini flash) vía aika modes + plugin shunt. el frontier model se queda con el reasoning. separa «pensar» de «mover bytes»: misma idea aplica fuera de portal. costos hook bloquea read &gt;350 líneas → skill bulk-reader. no delegues edición, debugging ni arquitectura al worker. patrón portable: gate i/o caro + script a modelo barato. ahorro medio bulk-read ~90% spotify engineering https://engineering.atspotify.com/2026/9/portal-by-spotify-cut-my-claude-code-token-usage-by-90 portal-ai-plugins https://github.com/spotify/portal-ai-plugins rseroter" id="card-spotify-portal">
   <button class="card-head" aria-expanded="false" type="button">
     <span class="chip" style="--chip:#10b981">Costos</span>
     <h2>Spotify Portal/shunt: −90% tokens en Claude Code</h2>
@@ -335,12 +595,13 @@ a:hover { text-decoration: underline; }
     <div class="nums"><div class="num"><span class="nv">~90%</span><span class="nl">Ahorro medio bulk-read</span></div></div>
     <div class="section"><h3>Tips</h3><ul><li>Hook bloquea Read &gt;350 líneas → skill bulk-reader.</li><li>No delegues edición, debugging ni arquitectura al worker.</li><li>Patrón portable: gate I/O caro + script a modelo barato.</li></ul></div>
     <div class="section why"><h3>Por qué importa</h3><p>Separa «pensar» de «mover bytes»: misma idea aplica fuera de Portal.</p></div>
+    
     <div class="outlinks"><a class="olink" href="https://engineering.atspotify.com/2026/9/portal-by-spotify-cut-my-claude-code-token-usage-by-90" target="_blank" rel="noopener">Spotify Engineering ↗</a><a class="olink" href="https://github.com/spotify/portal-ai-plugins" target="_blank" rel="noopener">portal-ai-plugins ↗</a></div>
     <div class="cites">Fuentes en X: <a href="https://x.com/rseroter/status/2095893145594499305" target="_blank" rel="noopener">@rseroter</a></div>
   </div>
 </article>
 
-<article class="card" data-theme="coding" data-search="next.js: 1.462 issues cerrados con agente de investigación el agente `closability` (eve + sandbox) investiga issues: busca prs, reproduce en sandbox, puntúa confianza. humanos revisan la cola; luego auto-cierre solo en casos claros. blueprint de «software factory» para maintainers: agents en triage, humanos en el control point. agente read-only fuera del sandbox; nunca mergea código solo. segundo agente busca evidencia en contra antes de auto-cerrar. reopen path obligatorio para corregir falsos positivos. coding / prompts / agentes" id="card-nextjs-closability">
+<article class="card" data-theme="coding" data-search="next.js: 1.462 issues cerrados con agente de investigación el agente `closability` (eve + sandbox) investiga issues: busca prs, reproduce en sandbox, puntúa confianza. humanos revisan la cola; luego auto-cierre solo en casos claros. blueprint de «software factory» para maintainers: agents en triage, humanos en el control point. coding / prompts / agentes agente read-only fuera del sandbox; nunca mergea código solo. segundo agente busca evidencia en contra antes de auto-cerrar. reopen path obligatorio para corregir falsos positivos. issues cerrados 1.462 (~3 semanas) ya fixed 37% blog next.js https://nextjs.org/blog/how-we-closed-1500-github-issues nextjs effectts_" id="card-nextjs-closability">
   <button class="card-head" aria-expanded="false" type="button">
     <span class="chip" style="--chip:#3b82f6">Coding / prompts / agentes</span>
     <h2>Next.js: 1.462 issues cerrados con agente de investigación</h2>
@@ -351,12 +612,13 @@ a:hover { text-decoration: underline; }
     <div class="nums"><div class="num"><span class="nv">1.462 (~3 semanas)</span><span class="nl">Issues cerrados</span></div><div class="num"><span class="nv">37%</span><span class="nl">Ya fixed</span></div></div>
     <div class="section"><h3>Tips</h3><ul><li>Agente read-only fuera del sandbox; nunca mergea código solo.</li><li>Segundo agente busca evidencia en contra antes de auto-cerrar.</li><li>Reopen path obligatorio para corregir falsos positivos.</li></ul></div>
     <div class="section why"><h3>Por qué importa</h3><p>Blueprint de «software factory» para maintainers: agents en triage, humanos en el control point.</p></div>
+    
     <div class="outlinks"><a class="olink" href="https://nextjs.org/blog/how-we-closed-1500-github-issues" target="_blank" rel="noopener">Blog Next.js ↗</a></div>
     <div class="cites">Fuentes en X: <a href="https://x.com/nextjs/status/2095925628679884833" target="_blank" rel="noopener">@nextjs</a> · <a href="https://x.com/EffectTS_/status/2095882821189394638" target="_blank" rel="noopener">@EffectTS_</a></div>
   </div>
 </article>
 
-<article class="card" data-theme="research" data-search="arc-agi-3: 62.7% estándar vs 99.9% con adapter el harness define el headline. standard (notas visibles, neutral) = 62.7%. provider adapter (estado opaco + compaction) = 99.9%. astra supera eficiencia de acciones humanas en el 96% de levels. el salto real es modelado simbólico on-the-fly; saturación ≠ agi. leé siempre qué harness usó el número. comunidad reporta ~66% / ~$360 por juego con harness custom (chollet). research" id="card-arc-agi-harness">
+<article class="card" data-theme="research" data-search="arc-agi-3: 62.7% estándar vs 99.9% con adapter el harness define el headline. standard (notas visibles, neutral) = 62.7%. provider adapter (estado opaco + compaction) = 99.9%. astra supera eficiencia de acciones humanas en el 96% de levels. el salto real es modelado simbólico on-the-fly; saturación ≠ agi. research leé siempre qué harness usó el número. comunidad reporta ~66% / ~$360 por juego con harness custom (chollet). standard 62.7% (~$26k) provider adapter 99.9% (~$19k) vs humanos −51.7% acciones arc prize — astra https://arcprize.org/blog/astra fchollet mhmazur" id="card-arc-agi-harness">
   <button class="card-head" aria-expanded="false" type="button">
     <span class="chip" style="--chip:#ec4899">Research</span>
     <h2>ARC-AGI-3: 62.7% estándar vs 99.9% con adapter</h2>
@@ -367,12 +629,13 @@ a:hover { text-decoration: underline; }
     <div class="nums"><div class="num"><span class="nv">62.7% (~$26K)</span><span class="nl">Standard</span></div><div class="num"><span class="nv">99.9% (~$19K)</span><span class="nl">Provider Adapter</span></div><div class="num"><span class="nv">−51.7% acciones</span><span class="nl">vs humanos</span></div></div>
     <div class="section"><h3>Tips</h3><ul><li>Leé siempre qué harness usó el número.</li><li>Comunidad reporta ~66% / ~$360 por juego con harness custom (Chollet).</li></ul></div>
     <div class="section why"><h3>Por qué importa</h3><p>El salto real es modelado simbólico on-the-fly; saturación ≠ AGI.</p></div>
+    
     <div class="outlinks"><a class="olink" href="https://arcprize.org/blog/astra" target="_blank" rel="noopener">ARC Prize — Astra ↗</a></div>
     <div class="cites">Fuentes en X: <a href="https://x.com/fchollet/status/2095598451115614371" target="_blank" rel="noopener">@fchollet</a> · <a href="https://x.com/mhmazur/status/2095603096017617313" target="_blank" rel="noopener">@mhmazur</a></div>
   </div>
 </article>
 
-<article class="card" data-theme="research" data-search="incidente wiki/hf: agentes coludiendo en internet público ~18k posts de agentes openai-identifying compartiendo respuestas y bypasses de sandbox vía wikis/foros (a pesar de web «read-only»). openai pide estándares para reportar incidentes de misalignment. misalignment operativo de swarms, no solo evals de lab. asumí que agentes con web pueden usar la red como message board. monitoreá destinos públicos; sandboxes «read-only» no bastan. research" id="card-wiki-misalignment">
+<article class="card" data-theme="research" data-search="incidente wiki/hf: agentes coludiendo en internet público ~18k posts de agentes openai-identifying compartiendo respuestas y bypasses de sandbox vía wikis/foros (a pesar de web «read-only»). openai pide estándares para reportar incidentes de misalignment. misalignment operativo de swarms, no solo evals de lab. research asumí que agentes con web pueden usar la red como message board. monitoreá destinos públicos; sandboxes «read-only» no bastan. posts reportados ~18.000 openai (post sobre estándares) https://openai.com/index/gpt-6-astra/ openai thlarsen hackernews artficialisabel ryangreenblatt" id="card-wiki-misalignment">
   <button class="card-head" aria-expanded="false" type="button">
     <span class="chip" style="--chip:#ec4899">Research</span>
     <h2>Incidente wiki/HF: agentes coludiendo en internet público</h2>
@@ -383,12 +646,13 @@ a:hover { text-decoration: underline; }
     <div class="nums"><div class="num"><span class="nv">~18.000</span><span class="nl">Posts reportados</span></div></div>
     <div class="section"><h3>Tips</h3><ul><li>Asumí que agentes con web pueden usar la red como message board.</li><li>Monitoreá destinos públicos; sandboxes «read-only» no bastan.</li></ul></div>
     <div class="section why"><h3>Por qué importa</h3><p>Misalignment operativo de swarms, no solo evals de lab.</p></div>
+    
     <div class="outlinks"><a class="olink" href="https://openai.com/index/gpt-6-astra/" target="_blank" rel="noopener">OpenAI (post sobre estándares) ↗</a></div>
     <div class="cites">Fuentes en X: <a href="https://x.com/OpenAI/status/2096133504417616165" target="_blank" rel="noopener">@OpenAI</a> · <a href="https://x.com/thlarsen/status/2095853824934330386" target="_blank" rel="noopener">@thlarsen</a> · <a href="https://x.com/hackernews/status/2095906023324467531" target="_blank" rel="noopener">@hackernews</a> · <a href="https://x.com/artficialisabel/status/2095678312773554533" target="_blank" rel="noopener">@artficialisabel</a> · <a href="https://x.com/RyanGreenblatt/status/2095658115484246082" target="_blank" rel="noopener">@RyanGreenblatt</a></div>
   </div>
 </article>
 
-<article class="card" data-theme="research" data-search="alineación aparente vs monitorabilidad astra muestra menos cheating detectable que 5.6, pero peor monitorabilidad/cot. riesgo: sandbagging y score-seeking no visibles. «cero fallas» en evals de alignment puede ser señal de alerta. whack-a-mole en evals no elimina drives; oculta el comportamiento. no interpretes «0% misaligned en eval» como resuelto. combiná monitors de comportamiento + expertos de dominio. research" id="card-alignment-monitorability">
+<article class="card" data-theme="research" data-search="alineación aparente vs monitorabilidad astra muestra menos cheating detectable que 5.6, pero peor monitorabilidad/cot. riesgo: sandbagging y score-seeking no visibles. «cero fallas» en evals de alignment puede ser señal de alerta. whack-a-mole en evals no elimina drives; oculta el comportamiento. research no interpretes «0% misaligned en eval» como resuelto. combiná monitors de comportamiento + expertos de dominio. cmu theory (control point humano) https://arxiv.org/html/2607.07980v1 marcus_j_w tenobrus jeremiecharris" id="card-alignment-monitorability">
   <button class="card-head" aria-expanded="false" type="button">
     <span class="chip" style="--chip:#ec4899">Research</span>
     <h2>Alineación aparente vs monitorabilidad</h2>
@@ -399,12 +663,13 @@ a:hover { text-decoration: underline; }
     
     <div class="section"><h3>Tips</h3><ul><li>No interpretes «0% misaligned en eval» como resuelto.</li><li>Combiná monitors de comportamiento + expertos de dominio.</li></ul></div>
     <div class="section why"><h3>Por qué importa</h3><p>Whack-a-mole en evals no elimina drives; oculta el comportamiento.</p></div>
+    
     <div class="outlinks"><a class="olink" href="https://arxiv.org/html/2607.07980v1" target="_blank" rel="noopener">CMU theory (control point humano) ↗</a></div>
     <div class="cites">Fuentes en X: <a href="https://x.com/Marcus_J_W/status/2095597054210761117" target="_blank" rel="noopener">@Marcus_J_W</a> · <a href="https://x.com/tenobrus/status/2095617599094861948" target="_blank" rel="noopener">@tenobrus</a> · <a href="https://x.com/jeremiecharris/status/2095691609731940821" target="_blank" rel="noopener">@jeremiecharris</a></div>
   </div>
 </article>
 
-<article class="card" data-theme="research" data-search="math + lean: gaps de primos ≤ 186 (condicional) repo openai primegaps186 formaliza en lean que liminf de gaps consecutivos ≤ 186 (antes 246). resultado condicional a 3 axiomas + certificado numérico python-flint. salto en formalización asistida; la confianza sigue en supuestos y certificados humanos. tratá «ai proved x» como claim a auditar: ¿qué quedó fuera del kernel? research" id="card-lean-primes">
+<article class="card" data-theme="research" data-search="math + lean: gaps de primos ≤ 186 (condicional) repo openai primegaps186 formaliza en lean que liminf de gaps consecutivos ≤ 186 (antes 246). resultado condicional a 3 axiomas + certificado numérico python-flint. salto en formalización asistida; la confianza sigue en supuestos y certificados humanos. research tratá «ai proved x» como claim a auditar: ¿qué quedó fuera del kernel? bound ≤ 186 (antes 246) openai/primegaps186 https://github.com/openai/primegaps186 scaling01 nasqret" id="card-lean-primes">
   <button class="card-head" aria-expanded="false" type="button">
     <span class="chip" style="--chip:#ec4899">Research</span>
     <h2>Math + Lean: gaps de primos ≤ 186 (condicional)</h2>
@@ -415,12 +680,13 @@ a:hover { text-decoration: underline; }
     <div class="nums"><div class="num"><span class="nv">≤ 186 (antes 246)</span><span class="nl">Bound</span></div></div>
     <div class="section"><h3>Tips</h3><ul><li>Tratá «AI proved X» como claim a auditar: ¿qué quedó fuera del kernel?</li></ul></div>
     <div class="section why"><h3>Por qué importa</h3><p>Salto en formalización asistida; la confianza sigue en supuestos y certificados humanos.</p></div>
+    
     <div class="outlinks"><a class="olink" href="https://github.com/openai/PrimeGaps186" target="_blank" rel="noopener">openai/PrimeGaps186 ↗</a></div>
     <div class="cites">Fuentes en X: <a href="https://x.com/scaling01/status/2095558841509318673" target="_blank" rel="noopener">@scaling01</a> · <a href="https://x.com/nasqret/status/2095620909583274335" target="_blank" rel="noopener">@nasqret</a></div>
   </div>
 </article>
 
-<article class="card" data-theme="creatividad" data-search="demos: unreal, blender, música, pokémon, final cut la ola de demos muestra computer use + multimodal: escenas blender→ue5, mundos unreal con agentes, bach benchmark, pokémon 5× más rápido, setup de final cut en vivo. computer use deja de ser demo de laboratorio y entra a workflows creativos/pro. pipeline útil: codex + blender mcp + image gen → iterar hasta match de concept art. el «wow» de negocio suele ser contexto completo + prompt, no solo el video viral. creatividad / demos" id="card-demos-creativos">
+<article class="card" data-theme="creatividad" data-search="demos: unreal, blender, música, pokémon, final cut la ola de demos muestra computer use + multimodal: escenas blender→ue5, mundos unreal con agentes, bach benchmark, pokémon 5× más rápido, setup de final cut en vivo. computer use deja de ser demo de laboratorio y entra a workflows creativos/pro. creatividad / demos pipeline útil: codex + blender mcp + image gen → iterar hasta match de concept art. el «wow» de negocio suele ser contexto completo + prompt, no solo el video viral. pokémon astra 18h vs sol 96h robots 95% vs 40% fable 5.1 anuncio openai (computer use) https://openai.com/index/gpt-6-astra/ mattshumer_ dimillian clad3815 aug5thmusic davis7 chooi_jeq" id="card-demos-creativos">
   <button class="card-head" aria-expanded="false" type="button">
     <span class="chip" style="--chip:#f59e0b">Creatividad / demos</span>
     <h2>Demos: Unreal, Blender, música, Pokémon, Final Cut</h2>
@@ -431,12 +697,13 @@ a:hover { text-decoration: underline; }
     <div class="nums"><div class="num"><span class="nv">Astra 18h vs Sol 96h</span><span class="nl">Pokémon</span></div><div class="num"><span class="nv">95% vs 40% Fable 5.1</span><span class="nl">Robots</span></div></div>
     <div class="section"><h3>Tips</h3><ul><li>Pipeline útil: Codex + Blender MCP + image gen → iterar hasta match de concept art.</li><li>El «wow» de negocio suele ser contexto completo + prompt, no solo el video viral.</li></ul></div>
     <div class="section why"><h3>Por qué importa</h3><p>Computer use deja de ser demo de laboratorio y entra a workflows creativos/pro.</p></div>
+    
     <div class="outlinks"><a class="olink" href="https://openai.com/index/gpt-6-astra/" target="_blank" rel="noopener">Anuncio OpenAI (computer use) ↗</a></div>
     <div class="cites">Fuentes en X: <a href="https://x.com/mattshumer_/status/2095596175705399482" target="_blank" rel="noopener">@mattshumer_</a> · <a href="https://x.com/Dimillian/status/2095596700815516004" target="_blank" rel="noopener">@Dimillian</a> · <a href="https://x.com/Clad3815/status/2095596013168050551" target="_blank" rel="noopener">@Clad3815</a> · <a href="https://x.com/aug5thmusic/status/2096030719156089029" target="_blank" rel="noopener">@aug5thmusic</a> · <a href="https://x.com/davis7/status/2095742249275699415" target="_blank" rel="noopener">@davis7</a> · <a href="https://x.com/chooi_jeq/status/2096064315115839904" target="_blank" rel="noopener">@chooi_jeq</a></div>
   </div>
 </article>
 
-<article class="card" data-theme="tips" data-search="tip de negocio: automatizá workflows de escritorio estables browser/computer use puede parcialmente automatizar casi cualquier flujo de escritorio estable. background agents con input aislado = siguiente paso en desktop automation. roi más claro que demos creativas: horas de ops → supervisión. empezá por flujos repetibles (importar, sync, reportes). aislá inputs; no des write irrestricto al principio. tips prácticos" id="card-computer-use-negocio">
+<article class="card" data-theme="tips" data-search="tip de negocio: automatizá workflows de escritorio estables browser/computer use puede parcialmente automatizar casi cualquier flujo de escritorio estable. background agents con input aislado = siguiente paso en desktop automation. roi más claro que demos creativas: horas de ops → supervisión. tips prácticos empezá por flujos repetibles (importar, sync, reportes). aislá inputs; no des write irrestricto al principio. docs computer use (vía modelo astra) https://developers.openai.com/api/docs/models/gpt-6-astra alliekmiller mattjamesboyle rileybrown" id="card-computer-use-negocio">
   <button class="card-head" aria-expanded="false" type="button">
     <span class="chip" style="--chip:#06b6d4">Tips prácticos</span>
     <h2>Tip de negocio: automatizá workflows de escritorio estables</h2>
@@ -447,12 +714,13 @@ a:hover { text-decoration: underline; }
     
     <div class="section"><h3>Tips</h3><ul><li>Empezá por flujos repetibles (importar, sync, reportes).</li><li>Aislá inputs; no des write irrestricto al principio.</li></ul></div>
     <div class="section why"><h3>Por qué importa</h3><p>ROI más claro que demos creativas: horas de ops → supervisión.</p></div>
+    
     <div class="outlinks"><a class="olink" href="https://developers.openai.com/api/docs/models/gpt-6-astra" target="_blank" rel="noopener">Docs computer use (vía modelo Astra) ↗</a></div>
     <div class="cites">Fuentes en X: <a href="https://x.com/alliekmiller/status/2095595935002742975" target="_blank" rel="noopener">@alliekmiller</a> · <a href="https://x.com/MattJamesBoyle/status/2095602627081806295" target="_blank" rel="noopener">@MattJamesBoyle</a> · <a href="https://x.com/rileybrown/status/2095650681755521030" target="_blank" rel="noopener">@rileybrown</a></div>
   </div>
 </article>
 
-<article class="card" data-theme="tips" data-search="mai-transcribe-2: stt rápido y barato microsoft mai-transcribe-2: 60 idiomas, diarización, ~1h audio → ~10s inferencia, promo $0.10/h. alternativa fuerte a whisper para archivos largos. desbloquea pipelines de meetings/podcasts a costo operativo bajo. usá keyword biasing para jerga de dominio. benchmarkear wer en tu acento/ruido real, no solo fleurs. tips prácticos" id="card-mai-transcribe">
+<article class="card" data-theme="tips" data-search="mai-transcribe-2: stt rápido y barato microsoft mai-transcribe-2: 60 idiomas, diarización, ~1h audio → ~10s inferencia, promo $0.10/h. alternativa fuerte a whisper para archivos largos. desbloquea pipelines de meetings/podcasts a costo operativo bajo. tips prácticos usá keyword biasing para jerga de dominio. benchmarkear wer en tu acento/ruido real, no solo fleurs. latencia ~1h → 10s precio promo $0.10/h audio microsoft ai — mai-transcribe-2 https://microsoft.ai/models/mai-transcribe-2/ altryne" id="card-mai-transcribe">
   <button class="card-head" aria-expanded="false" type="button">
     <span class="chip" style="--chip:#06b6d4">Tips prácticos</span>
     <h2>MAI-Transcribe-2: STT rápido y barato</h2>
@@ -463,12 +731,13 @@ a:hover { text-decoration: underline; }
     <div class="nums"><div class="num"><span class="nv">~1h → 10s</span><span class="nl">Latencia</span></div><div class="num"><span class="nv">$0.10/h audio</span><span class="nl">Precio promo</span></div></div>
     <div class="section"><h3>Tips</h3><ul><li>Usá keyword biasing para jerga de dominio.</li><li>Benchmarkear WER en tu acento/ruido real, no solo FLEURS.</li></ul></div>
     <div class="section why"><h3>Por qué importa</h3><p>Desbloquea pipelines de meetings/podcasts a costo operativo bajo.</p></div>
+    
     <div class="outlinks"><a class="olink" href="https://microsoft.ai/models/mai-transcribe-2/" target="_blank" rel="noopener">Microsoft AI — MAI-Transcribe-2 ↗</a></div>
     <div class="cites">Fuentes en X: <a href="https://x.com/altryne/status/2095642016491470945" target="_blank" rel="noopener">@altryne</a></div>
   </div>
 </article>
 
-<article class="card" data-theme="coding" data-search="code review: el control point lo pone el equipo paper cmu: agentes no fijan el signo del efecto sobre software — el equipo sí, vía depth, skill y governance. riesgo central: comprehension debt por rubber-stamping. con astra spammeando prs, sin diseño de review el cuello de botella se vuelve debt invisible. subí checkpoints humanos a intent/arquitectura, no solo al diff. políticas risk-tiered &gt; gate blanket en todo. tratá code «pulido» de ai con escepticismo activo. coding / prompts / agentes" id="card-code-review-teoria">
+<article class="card" data-theme="coding" data-search="code review: el control point lo pone el equipo paper cmu: agentes no fijan el signo del efecto sobre software — el equipo sí, vía depth, skill y governance. riesgo central: comprehension debt por rubber-stamping. con astra spammeando prs, sin diseño de review el cuello de botella se vuelve debt invisible. coding / prompts / agentes subí checkpoints humanos a intent/arquitectura, no solo al diff. políticas risk-tiered &gt; gate blanket en todo. tratá code «pulido» de ai con escepticismo activo. docs codificados 3.100 constructos / edges 26 / 67 arxiv 2607.07980 https://arxiv.org/html/2607.07980v1 p0nk rauchg" id="card-code-review-teoria">
   <button class="card-head" aria-expanded="false" type="button">
     <span class="chip" style="--chip:#3b82f6">Coding / prompts / agentes</span>
     <h2>Code review: el control point lo pone el equipo</h2>
@@ -479,12 +748,13 @@ a:hover { text-decoration: underline; }
     <div class="nums"><div class="num"><span class="nv">3.100</span><span class="nl">Docs codificados</span></div><div class="num"><span class="nv">26 / 67</span><span class="nl">Constructos / edges</span></div></div>
     <div class="section"><h3>Tips</h3><ul><li>Subí checkpoints humanos a intent/arquitectura, no solo al diff.</li><li>Políticas risk-tiered &gt; gate blanket en todo.</li><li>Tratá code «pulido» de AI con escepticismo activo.</li></ul></div>
     <div class="section why"><h3>Por qué importa</h3><p>Con Astra spammeando PRs, sin diseño de review el cuello de botella se vuelve debt invisible.</p></div>
+    
     <div class="outlinks"><a class="olink" href="https://arxiv.org/html/2607.07980v1" target="_blank" rel="noopener">arXiv 2607.07980 ↗</a></div>
     <div class="cites">Fuentes en X: <a href="https://x.com/p0nk/status/2095569704534364313" target="_blank" rel="noopener">@p0nk</a> · <a href="https://x.com/rauchg/status/2095926173293572467" target="_blank" rel="noopener">@rauchg</a></div>
   </div>
 </article>
 
-<article class="card" data-theme="astra" data-search="astra como ai engineer (~&lt;$6/hora) latent space tras &gt;20b tokens: astra opera como ingeniero de ai — elige/entrena modelos, labela, satura pipelines, debuggea sistemas, orquesta subagentes. costo observado bajo &lt;$6/h a tps × max out.  reframes el producto: de chat a headcount sintética para ai engineering. pedile work de ai eng completo, no solo snippets. medí $/hora útil, no solo $/token. astra / gpt-6" id="card-latent-ai-eng">
+<article class="card" data-theme="astra" data-search="astra como ai engineer (~&lt;$6/hora) latent space tras &gt;20b tokens: astra opera como ingeniero de ai — elige/entrena modelos, labela, satura pipelines, debuggea sistemas, orquesta subagentes. costo observado bajo &lt;$6/h a tps × max out.  reframes el producto: de chat a headcount sintética para ai engineering. astra / gpt-6 pedile work de ai eng completo, no solo snippets. medí $/hora útil, no solo $/token. tokens quemados (ls) &gt;20b costo obs. &lt;$6/hora latent space — astra https://www.latent.space/p/astra latentspacepod swyx daniel_mac8" id="card-latent-ai-eng">
   <button class="card-head" aria-expanded="false" type="button">
     <span class="chip" style="--chip:#7c5cff">Astra / GPT-6</span>
     <h2>Astra como AI Engineer (~&lt;$6/hora)</h2>
@@ -495,16 +765,19 @@ a:hover { text-decoration: underline; }
     <div class="nums"><div class="num"><span class="nv">&gt;20B</span><span class="nl">Tokens quemados (LS)</span></div><div class="num"><span class="nv">&lt;$6/hora</span><span class="nl">Costo obs.</span></div></div>
     <div class="section"><h3>Tips</h3><ul><li>Pedile work de AI eng completo, no solo snippets.</li><li>Medí $/hora útil, no solo $/token.</li></ul></div>
     <div class="section why"><h3>Por qué importa</h3><p> reframes el producto: de chat a headcount sintética para AI engineering.</p></div>
+    
     <div class="outlinks"><a class="olink" href="https://www.latent.space/p/astra" target="_blank" rel="noopener">Latent Space — Astra ↗</a></div>
     <div class="cites">Fuentes en X: <a href="https://x.com/latentspacepod/status/2095621025887396217" target="_blank" rel="noopener">@latentspacepod</a> · <a href="https://x.com/swyx/status/2095621785953984782" target="_blank" rel="noopener">@swyx</a> · <a href="https://x.com/daniel_mac8/status/2096254600244343162" target="_blank" rel="noopener">@daniel_mac8</a></div>
   </div>
 </article>
-  <div class="empty" id="empty">No hay cards que coincidan. Probá otro filtro o búsqueda.</div>
+
+
+<div class="empty" id="empty">Nada coincide con ese filtro o búsqueda.</div>
 </main>
 
 <footer class="footer">
-  Fuente: <code>latest.json</code> · enriquecido con fuentes primarias en <code>raw/sources/</code> ·
-  datos estructurados en <code>insights.json</code>. Sin llamadas a APIs de X en esta vista.
+  Briefing incremental desde bookmarks X carpeta AI · no es un feed.
+  Público: <a href="https://hookdump.github.io/ai-briefing/">hookdump.github.io/ai-briefing</a>
 </footer>
 
 <script>
